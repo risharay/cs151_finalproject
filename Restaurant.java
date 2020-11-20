@@ -5,6 +5,7 @@ public class Restaurant
     String cuisine;
     String location;
     double rating;
+    ReviewList reviews;
 
     public Restaurant(String name, String cuisine, String location, double rating)
     {

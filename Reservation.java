@@ -19,7 +19,6 @@ public class Reservation{
         this.reservationId = reservationId;
     }
 
-
     public int getPartySize(){
 
         return partySize;
