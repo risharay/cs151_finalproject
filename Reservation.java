@@ -1,4 +1,4 @@
-class Reservation{
+public class Reservation{
 	int reservationId;
     int partySize;
 	String partyName;
@@ -12,30 +12,26 @@ class Reservation{
 
     public int getReservationId(){
 
-        return this.reservationId;
+        return reservationId;
+    }
+     public void setReservationId(){
+
+        this.reservationId = reservationId;
     }
 
     public int getPartySize(){
 
-        return this.partySize;
+        return partySize;
+    }
+     public void setPartySize(){
+         this.partySize = partySize;
     }
 
     public String getPartyName(){
 
-        return this.partyName;
+        return partyName;
     }
-
-    public void setReservationId(int reservationId) {
-        this.reservationId = reservationId;
+    public void setPartyName(){
+        this.partyName= partyName;
     }
-
-    public void setPartySize(int partySize) {
-        this.partySize = partySize;
-    }
-    
-    public void setPartyName(String partyName) {
-        this.partyName = partyName;
-    }
-
-
 }
