@@ -1,9 +1,11 @@
 public class Review {
+    // Variables
     int rating;
     Date date;
     String comment;
     String name;
-    
+
+    // Constructor
     public Review(int rating, Date date, String comment, String name){
 		this.rating = rating;
 		this.date = date;
@@ -11,7 +13,7 @@ public class Review {
         this.name = name;
     }
     
-    //Getters 
+    // Getters 
     public int getRating() {
         return rating;
     }

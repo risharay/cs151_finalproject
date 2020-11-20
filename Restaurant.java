@@ -1,12 +1,15 @@
 
 public class Restaurant
 {
+    // Variables
     String name;
     String cuisine;
     String location;
     double rating;
-    ReviewList reviews;
+    List<Review> reviews = new List<>();
+    List<Reservation> reservations = new List<>();
 
+    // Constructor
     public Restaurant(String name, String cuisine, String location, double rating)
     {
         this.name = name;
@@ -15,6 +18,7 @@ public class Restaurant
         this.rating = rating;
     }
 
+    // Getters and setters
     public String getName() {
         return name;
     }
@@ -46,4 +50,26 @@ public class Restaurant
     public void setRating(double rating) {
         this.rating = rating;
     }
+
+    // Review methods
+    public boolean makeReview(int rating, Date date, String comment, String name) {
+        Review newReview = Review(rating, date, comment, name);
+        reviews.add(newReview);
+        return true;
+    }
+
+    public double calculateOverallRating() {
+        double totalRating = 0;
+        for(Review r : reviews) {
+            totalRating += r;
+        }
+        return totalRating;
+    }
+
+    // Reservation methods
+    public boolean makeAReservation(String partyName, int partySize, int reservationId){
+        Reservation newReservation = new Reservation(reservationId, partySize, partyName);
+        reservations.add(newReservation);
+        return true;
+	}
 }
