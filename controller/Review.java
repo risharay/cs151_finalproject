@@ -1,3 +1,5 @@
+package cs151_finalproject.controller;
+
 public class Review {
     // Variables
     int rating;

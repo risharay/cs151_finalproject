@@ -1,3 +1,5 @@
+package cs151_finalproject.controller;
+
 public class Reservation{
     // Variables
 	int reservationId;

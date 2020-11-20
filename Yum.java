@@ -1,3 +1,12 @@
+package cs151_finalproject;
+
+import cs151_finalproject.controller.Controller;
+import cs151_finalproject.model.Model;
+import cs151_finalproject.view.View;
+
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+
 public class Yum {
     private static BlockingQueue<Message> queue = new LinkedBlockingQueue<>();
     private static View view;
