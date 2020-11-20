@@ -25,16 +25,17 @@ class Reservation{
         return this.partyName;
     }
 
-    public void setReservationId(){
-
-    }
-    public void setPartySize(){
-
-    }
-    public void setPartyName(){
-
+    public void setReservationId(int reservationId) {
+        this.reservationId = reservationId;
     }
 
+    public void setPartySize(int partySize) {
+        this.partySize = partySize;
+    }
+    
+    public void setPartyName(String partyName) {
+        this.partyName = partyName;
+    }
 
 
 }
