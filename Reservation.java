@@ -1,21 +1,22 @@
 public class Reservation{
+    // Variables
 	int reservationId;
     int partySize;
 	String partyName;
-	
+    
+    // Constructor
 	public Reservation(int reservationId, int partySize,String partyName){
 		this.reservationId = reservationId;
-		this.partySize = partySize;
-		this.partySize = partySize;
-	
+        this.partySize = partySize;
+        this.partyName = partyName;
 	}
 
+    // Getters and setters
     public int getReservationId(){
 
         return reservationId;
     }
-     public void setReservationId(){
-
+     public void setReservationId(reservationId){
         this.reservationId = reservationId;
     }
 
@@ -23,7 +24,7 @@ public class Reservation{
 
         return partySize;
     }
-     public void setPartySize(){
+     public void setPartySize(partySize){
          this.partySize = partySize;
     }
 
@@ -31,7 +32,7 @@ public class Reservation{
 
         return partyName;
     }
-    public void setPartyName(){
+    public void setPartyName(partyName){
         this.partyName= partyName;
     }
 }
