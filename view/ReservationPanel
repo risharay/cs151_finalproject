@@ -1,0 +1,85 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+/**
+ * Panel to Make a reservation
+ *
+ */
+public class ReservationPanel extends JFrame {
+    private JLabel partyNameLabel = new JLabel("Party Name ");
+    private JLabel partySizeLabel = new JLabel("Party Size: ");
+    private JLabel numberOfPartiesLabel = new JLabel("Number of Parties Ahead: ");
+    private JTextField partyNameField = new JTextField(20);
+    private JTextField partySizeField = new JTextField(20);
+
+    private String name;
+    private String size;
+    private String partyCount;
+
+    private JButton confirm;
+    ArrayList<Reservation> reservations;
+
+    public ReservationPanel(int n1, int n2) {
+        this.reservations = new ArrayList<Reservation>();
+
+        JPanel partyNamePanel = new JPanel();
+        partyNamePanel.add(partyNameLabel);
+        partyNamePanel.add(partyNameField);
+        partyNameField.setText(n1 + "");
+
+        JPanel partySizePanel = new JPanel();
+        partySizePanel.add(partySizeLabel);
+        partySizePanel.add(partySizeField);
+        partySizeField.setText(n2 + "");
+
+        JPanel numberOfPartiesPanel = new JPanel();
+        numberOfPartiesPanel.add(numberOfPartiesLabel);
+
+
+        confirm = new JButton("Confirm");
+
+        confirm.addActionListener(confirm -> updateValues());
+
+        JFrame frame = new JFrame();
+
+        frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
+        frame.add(partyNamePanel);
+        frame.add(partySizePanel);
+        frame.add(numberOfPartiesPanel);
+        frame.add(confirm);
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+
+
+    }
+    private void updateValues() {
+
+        name = partyNameField.getText();
+        size = partySizeField.getText();
+        reservations.add(name);
+        reservations.add(size);
+        JPanel ConfirmationPanel = new JPanel();
+
+    }
+confirm.addActionListener(new ActionListener(){
+        public void actionPerformed(ActionEvent e) {
+
+            ConfirmationPanel simple = new ConfirmationPanel(reservations);
+            JFrame receipt = new JFrame();
+            JPanel panel = new JPanel();
+            JTextArea receiptArea = new JTextArea(15,10);
+            receiptArea.setEditable(false);
+            panel.add(receiptArea);
+            receipt.add(panel);
+            receipt.pack();
+            receipt.setVisible(true);
+        }
+        });
+
+    }
+}
+}
