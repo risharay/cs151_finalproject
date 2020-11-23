@@ -5,13 +5,13 @@ public class Restaurant
     // Variables
     String name;
     String cuisine;
-    String location;
+    int location;
     double rating;
     List<Review> reviews = new List<>();
     List<Reservation> reservations = new List<>();
 
     // Constructor
-    public Restaurant(String name, String cuisine, String location, double rating)
+    public Restaurant(String name, String cuisine, int location, double rating)
     {
         this.name = name;
         this.cuisine = cuisine;
@@ -36,7 +36,7 @@ public class Restaurant
         this.cuisine = cuisine;
     }
 
-    public String getLocation() {
+    public int getLocation() {
         return location;
     }
 
@@ -68,7 +68,7 @@ public class Restaurant
     }
 
     // Reservation methods
-    public boolean makeAReservation(String partyName, int partySize, int reservationId){
+    public boolean makeAReservation(String partyName, int partySize, int reservationId) {
         Reservation newReservation = new Reservation(reservationId, partySize, partyName);
         reservations.add(newReservation);
         return true;
