@@ -2,23 +2,23 @@ package cs151_finalproject.controller;
 
 public class Reservation{
     // Variables
-	int reservationId;
+    int reservationId;
     int partySize;
-	String partyName;
-    
+    String partyName;
+
     // Constructor
-	public Reservation(int reservationId, int partySize,String partyName){
-		this.reservationId = reservationId;
+    public Reservation(int reservationId, int partySize,String partyName){
+        this.reservationId = reservationId;
         this.partySize = partySize;
         this.partyName = partyName;
-	}
+    }
 
     // Getters and setters
     public int getReservationId(){
 
         return reservationId;
     }
-     public void setReservationId(reservationId){
+    public void setReservationId(int reservationId){
         this.reservationId = reservationId;
     }
 
@@ -26,15 +26,15 @@ public class Reservation{
 
         return partySize;
     }
-     public void setPartySize(partySize){
-         this.partySize = partySize;
+    public void setPartySize(int partySize){
+        this.partySize = partySize;
     }
 
     public String getPartyName(){
 
         return partyName;
     }
-    public void setPartyName(partyName){
+    public void setPartyName(String partyName){
         this.partyName= partyName;
     }
 }
