@@ -1,5 +1,3 @@
-package test;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -76,15 +74,14 @@ public class ReservationPanel extends JFrame {
         reservationId++;
         int size = Integer.parseInt(partySizeField.getText());
         String name = partyNameField.getText();
-        confirm.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e) {
-                reservations.add(new Reservation(reservationId, size, name));
-                for(int i = 0; i < reservations.size(); i++) {
-                    partyNameLabelUpdated.setText(reservations.get(i).getPartyName());
-                    partySizeLabelUpdated.setText(String.valueOf(reservations.get(i).getPartySize()));
-                    numberOfPartiesLabelUpdated.setText(String.valueOf(reservations.get(i).getReservationId()));
+        confirm.addActionListener(e -> {
+            reservations.add(new Reservation(reservationId, size, name));
+            for(int i = 0; i < reservations.size(); i++) {
+                partyNameLabelUpdated.setText(reservations.get(i).getPartyName());
+                System.out.println(reservations.get(i).getPartyName());
+                partySizeLabelUpdated.setText(String.valueOf(reservations.get(i).getPartySize()));
+                numberOfPartiesLabelUpdated.setText(String.valueOf(reservations.get(i).getReservationId()));
 
-                }
             }
         });
 
