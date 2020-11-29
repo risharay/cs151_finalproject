@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -66,7 +65,7 @@ public class ReservationPanel extends JFrame {
         back.addActionListener(back -> goBack());
         JFrame frame = new JFrame();
         frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
-
+        frame.setSize(500,500);
         frame.add(partyNamePanel, JFrame.LEFT_ALIGNMENT);
         frame.add(partyNamePanelUpdated);
         frame.add(partySizePanel, JFrame.LEFT_ALIGNMENT);
@@ -76,7 +75,7 @@ public class ReservationPanel extends JFrame {
         frame.add(confirm);
         frame.add(back);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
+        //frame.pack();
         frame.setVisible(true);
 
     }
@@ -111,6 +110,7 @@ public class ReservationPanel extends JFrame {
 
     }
     private void goBack(){
+        //go back to restaurant page
     }
     public static void main(String args[]) {
         Reservation reservation = new Reservation(0,0,null);
