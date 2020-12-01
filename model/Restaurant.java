@@ -1,6 +1,6 @@
 package cs151_finalproject.controller;
 
-public class Restaurant
+public class Restaurant implements Comparable<Restaurant>
 {
     // Variables
     String name;
@@ -73,4 +73,27 @@ public class Restaurant
         reservations.add(newReservation);
         return true;
 	}
+
+    @Override
+    public int compareTo(Restaurant other) {
+        return this.name.compareTo(other.name);
+    }
+}
+
+class RestaurantRatingComparator implements Comparator<Restaurant>
+{
+    @Override
+    public int compare(Restaurant r1, Restaurant r2)
+    {
+        return r1.getRating() - r2.getRating();
+    }
+}
+
+class RestaurantLocationComparator implements Comparator<Restaurant>
+{
+    @Override
+    public int compare(Restaurant r1, Restaurant r2)
+    {
+        return r1.getLocation() - r2.getLocation();
+    }
 }
