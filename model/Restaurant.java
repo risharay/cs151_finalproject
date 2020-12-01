@@ -83,6 +83,11 @@ public class Restaurant implements Comparable<Restaurant>
     public int compareTo(Restaurant other) {
         return this.name.compareTo(other.name);
     }
+
+    @Override
+    public String toString() {
+        return name + ", Cuisine = " + cuisine + ", " + location + " miles, " + rating + "/5";
+    }
 }
 
 class RestaurantRatingComparator implements Comparator<Restaurant>
