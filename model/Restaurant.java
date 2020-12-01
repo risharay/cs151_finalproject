@@ -90,6 +90,7 @@ public class Restaurant implements Comparable<Restaurant>
     }
 }
 
+
 class RestaurantCuisineComparator implements Comparator<Restaurant>
 {
     public int compare(Restaurant r1, Restaurant r2)
