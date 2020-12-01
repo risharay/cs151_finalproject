@@ -4,13 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 /**
- * Panel to Make a reservation
- *
+ * Reservation Panel where users can make a reservation for the restaurant
  */
-
 public class ReservationPanel extends JFrame {
     private Reservation reservation;
-    private JLabel partyNameLabel = new JLabel("Party Name ");
+    private JLabel partyNameLabel = new JLabel("Party Name: ");
     private JLabel partyNameLabelUpdated = new JLabel();
     private JLabel partySizeLabel = new JLabel("Party Size: ");
     private JLabel partySizeLabelUpdated = new JLabel();
@@ -19,42 +17,52 @@ public class ReservationPanel extends JFrame {
     private JTextField partyNameField = new JTextField(10);
     private JTextField partySizeField = new JTextField(10);
 
-
     int reservationId;
+    JFrame frame = new JFrame();
+    JPanel partyNamePanel = new JPanel();
+    JPanel partyNamePanelUpdated = new JPanel();
     JPanel partySizePanel = new JPanel();
+    JPanel partySizePanelUpdated = new JPanel();
+    JPanel numberOfPartiesPanel = new JPanel();
+    JPanel numberOfPartiesPanelUpdated = new JPanel();
 
     private JButton confirm;
     private JButton back;
 
     ArrayList<Reservation> reservations;
 
-    public ReservationPanel(String n1, int n2) {
+    /**
+     * Design and functions for the Reservation Panel
+     * @param partyName Party Name string
+     * @param partySize Party Size int
+     */
+    public ReservationPanel(String partyName, int partySize) {
         this.reservation = reservation;
         this.reservations = new ArrayList<Reservation>();
 
-        JPanel partyNamePanel = new JPanel();
+        //JPanel partyNamePanel = new JPanel();
         partyNamePanel.add(partyNameLabel);
         partyNamePanel.add(partyNameField);
-        partyNameField.setText(n1 + "");
+        partyNameField.setText(partyName + "");
 
 
-        JPanel partyNamePanelUpdated = new JPanel();
+        //JPanel partyNamePanelUpdated = new JPanel();
         partyNamePanel.add(partyNameLabelUpdated);
 
         partySizePanel.add(partySizeLabel);
         partySizePanel.add(partySizeField);
-        partySizeField.setText(n2 + "");
+        partySizeField.setText(partySize + "");
 
 
-        JPanel partySizePanelUpdated = new JPanel();
+        //JPanel partySizePanelUpdated = new JPanel();
         partyNamePanel.add(partySizeLabelUpdated);
 
 
-        JPanel numberOfPartiesPanel = new JPanel();
+        //JPanel numberOfPartiesPanel = new JPanel();
         numberOfPartiesPanel.add(numberOfPartiesLabel);
 
 
-        JPanel numberOfPartiesPanelUpdated = new JPanel();
+        //JPanel numberOfPartiesPanelUpdated = new JPanel();
         partyNamePanel.add(numberOfPartiesLabelUpdated);
 
 
@@ -63,25 +71,25 @@ public class ReservationPanel extends JFrame {
 
         confirm.addActionListener(confirm -> updateValues());
         back.addActionListener(back -> goBack());
-        JFrame frame = new JFrame();
+
+
         frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         frame.setSize(500,500);
         frame.add(partyNamePanel, JFrame.LEFT_ALIGNMENT);
-        frame.add(partyNamePanelUpdated);
+        frame.add(partyNamePanelUpdated, JFrame.LEFT_ALIGNMENT);
         frame.add(partySizePanel, JFrame.LEFT_ALIGNMENT);
-        frame.add(partySizePanelUpdated);
+        frame.add(partySizePanelUpdated, JFrame.LEFT_ALIGNMENT);
         frame.add(numberOfPartiesPanel, JFrame.LEFT_ALIGNMENT);
-        frame.add(numberOfPartiesPanelUpdated);
+        frame.add(numberOfPartiesPanelUpdated, JFrame.LEFT_ALIGNMENT);
         frame.add(confirm);
         frame.add(back);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame.pack();
         frame.setVisible(true);
 
     }
-
-
-
+    /**
+     * Reservation List update process when user presses confirm button
+     */
     private void updateValues() {
         reservationId++;
         int size = Integer.parseInt(partySizeField.getText());
@@ -91,33 +99,36 @@ public class ReservationPanel extends JFrame {
         reservations.add(new Reservation(reservationId, size, name));
         for (int i = 0; i < reservations.size(); i++) {
 
+            //Debugging
+            System.out.println(reservations.get(i).getPartyName());
+            System.out.println(reservations.get(i).getPartySize());
+            System.out.println(String.valueOf(reservations.get(i).getReservationId()));
 
             partyNameLabelUpdated.setText("Party Name: " + reservations.get(i).getPartyName());
-            System.out.println(reservations.get(i).getPartyName());
-            //reservation.setPartySize(reservations.get(i).getPartySize());
             partySizeLabelUpdated.setText("Party Size: " + reservations.get(i).getPartySize());
             numberOfPartiesLabelUpdated.setText("Number of Parties Ahead: " + String.valueOf(reservations.get(i).getReservationId()));
             numberOfPartiesLabel.setText("Number of Parties Ahead: " + String.valueOf(reservations.get(i).getReservationId()));
+
             partyNameLabel.setVisible(false);
             partyNameField.setVisible(false);
             partySizeLabel.setVisible(false);
             partySizeField.setVisible(false);
+            numberOfPartiesLabel.setVisible(false);
             confirm.setVisible(false);
-
-
         }
-
-
     }
+
+    /**
+     * Goes back to main page when user presses confirm button
+     */
     private void goBack(){
-        //go back to restaurant page
     }
+
+    /**
+     * Main Method to see how it runs
+     */
     public static void main(String args[]) {
         Reservation reservation = new Reservation(0,0,null);
         ReservationPanel reservationFrame = new ReservationPanel(null,0);
-        // ConfirmationPanel confirmationPanelFrame = new ConfirmationPanel(reservation);
-
-
-
     }
 }
