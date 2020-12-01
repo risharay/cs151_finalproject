@@ -1,5 +1,9 @@
 package cs151_finalproject.controller;
 
+import java.util.List;
+import java.util.Comparator;
+import java.util.ArrayList;
+
 public class Restaurant implements Comparable<Restaurant>
 {
     // Variables
@@ -7,8 +11,8 @@ public class Restaurant implements Comparable<Restaurant>
     String cuisine;
     int location;
     double rating;
-    List<Review> reviews = new List<>();
-    List<Reservation> reservations = new List<>();
+    List<Review> reviews = new ArrayList<>();
+    List<Reservation> reservations = new ArrayList<>();
 
     // Constructor
     public Restaurant(String name, String cuisine, int location, double rating)
@@ -40,29 +44,30 @@ public class Restaurant implements Comparable<Restaurant>
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(int location) {
         this.location = location;
     }
 
     public double getRating() {
         return rating;
     }
-    
+
     public void setRating(double rating) {
         this.rating = rating;
     }
 
     // Review methods
-    public boolean makeReview(int rating, Date date, String comment, String name) {
-        Review newReview = Review(rating, date, comment, name);
+    public boolean makeReview(int rating, String comment, String name) {
+        Review newReview = new Review(rating, comment, name);
         reviews.add(newReview);
         return true;
     }
 
     public double calculateOverallRating() {
         double totalRating = 0;
-        for(Review r : reviews) {
-            totalRating += r;
+        for(Review r : reviews)
+        {
+            totalRating += r.getRating();
         }
         return totalRating;
     }
@@ -72,7 +77,7 @@ public class Restaurant implements Comparable<Restaurant>
         Reservation newReservation = new Reservation(reservationId, partySize, partyName);
         reservations.add(newReservation);
         return true;
-	}
+    }
 
     @Override
     public int compareTo(Restaurant other) {
@@ -82,10 +87,9 @@ public class Restaurant implements Comparable<Restaurant>
 
 class RestaurantRatingComparator implements Comparator<Restaurant>
 {
-    @Override
     public int compare(Restaurant r1, Restaurant r2)
     {
-        return r1.getRating() - r2.getRating();
+        return (int) (r1.getRating() - r2.getRating());
     }
 }
 
