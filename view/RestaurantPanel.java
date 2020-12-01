@@ -7,9 +7,10 @@ public class RestaurantPanel extends JFrame
 {
     public static ArrayList<Restaurant> restaurants = new ArrayList<>();
 
-    private JLabel search = new JLabel("Search/Filter:");
-    private JTextField searchBar = new JTextField(25);
+    private JLabel search = new JLabel("Filter By:");
     private JButton filter = new JButton("Filter");
+    private String[] filterOptions = {"Cuisine", "Location", "Rating"};
+    private JComboBox comboBox = new JComboBox(filterOptions);
 
     JList<Restaurant> list = new JList<>();
     DefaultListModel<Restaurant> model = new DefaultListModel<>();
@@ -21,7 +22,7 @@ public class RestaurantPanel extends JFrame
     {
         panel1.setLayout(new FlowLayout());
         panel1.add(search);
-        panel1.add(searchBar);
+        panel1.add(comboBox);
         panel1.add(filter);
 
         list.setModel(model);
@@ -34,12 +35,46 @@ public class RestaurantPanel extends JFrame
         list.setLayoutOrientation(JList.VERTICAL);
         panel2.add(listScroller);
 
+        filter.addActionListener(filter -> updateList());
+
         frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         frame.add(panel1);
         frame.add(panel2);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+    }
+
+    private void updateList()
+    {
+        this.model.removeAllElements();
+
+        if(comboBox.getSelectedItem().equals("Cuisine"))
+        {
+            Collections.sort(restaurants, new RestaurantCuisineComparator());
+            for(Restaurant r : restaurants)
+            {
+                model.addElement(r);
+            }
+        }
+
+        if(comboBox.getSelectedItem().equals("Location"))
+        {
+            Collections.sort(restaurants, new RestaurantLocationComparator());
+            for(Restaurant r : restaurants)
+            {
+                model.addElement(r);
+            }
+        }
+
+        if(comboBox.getSelectedItem().equals("Rating"))
+        {
+            Collections.sort(restaurants, new RestaurantRatingComparator());
+            for(Restaurant r : restaurants)
+            {
+                model.addElement(r);
+            }
+        }
     }
 
     public static void main(String[] args) {

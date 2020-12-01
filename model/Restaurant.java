@@ -90,11 +90,19 @@ public class Restaurant implements Comparable<Restaurant>
     }
 }
 
+class RestaurantCuisineComparator implements Comparator<Restaurant>
+{
+    public int compare(Restaurant r1, Restaurant r2)
+    {
+        return r1.getCuisine().compareTo(r2.getCuisine());
+    }
+}
+
 class RestaurantRatingComparator implements Comparator<Restaurant>
 {
     public int compare(Restaurant r1, Restaurant r2)
     {
-        return (int) (r1.getRating() - r2.getRating());
+        return (int) -(r1.getRating() - r2.getRating());
     }
 }
 
