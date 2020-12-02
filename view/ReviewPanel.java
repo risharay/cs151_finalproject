@@ -18,20 +18,23 @@ public class ReviewPanel extends JFrame {
 
     public ReviewPanel() {
         JFrame frame = new JFrame();
+        frame.add(formPanel(), BorderLayout.NORTH);
+        initializeReviewLabels();
 
-        frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
-        frame.add(formPanel());
-        frame.add(reviewLabels()); // incomplete
+        // implement a scroll pane that appears when the list gets longer than allocated size
+        scrollPane = new JScrollPane(reviewJList);
+        Container contentPane = frame.getContentPane();
+        contentPane.add(scrollPane, BorderLayout.CENTER);
 
-        frame.setLayout(new FlowLayout());
+        frame.setPreferredSize(new Dimension(500, 500));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
     }
 
-    public JList reviewLabels() {
-        reviewJList = new JList();
-        model = new DefaultListModel();
+    public void initializeReviewLabels() {
+        model.clear();
+        reviewJList = new JList(model);
         for (Review r : reviews) {
             model.addElement(r);
         }
@@ -42,7 +45,6 @@ public class ReviewPanel extends JFrame {
         // resJList.add(temp);
 
         reviewJList.setSelectionModel(new DisabledItemSelectionModel());
-        return reviewJList;
     }
 
     public JPanel formPanel() {
@@ -76,7 +78,7 @@ public class ReviewPanel extends JFrame {
             if(!nameInput.getText().isBlank() && !ratingInput.getText().isBlank() && !reviewInput.getText().isBlank()) {
                 Review temp = new Review(Integer.parseInt(ratingInput.getText()), reviewInput.getText(), nameInput.getText());
                 reviews.add(temp);
-                model.addElement(temp);
+                initializeReviewLabels();
             } 
         });
 
@@ -101,8 +103,9 @@ public class ReviewPanel extends JFrame {
     private JTextField reviewInput = new JTextField(25);
     private JButton submitButton = new JButton("Submit");
 
-    private JList<Review> reviewJList;
-    private DefaultListModel model;
+    private DefaultListModel model =  new DefaultListModel();
+    private JList<Review> reviewJList = new JList(model);
+    JScrollPane scrollPane = new JScrollPane(reviewJList);
 
 }
 
