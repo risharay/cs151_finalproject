@@ -1,5 +1,3 @@
-package cs151_finalproject.controller;
-
 // import java.util.Date;  
 
 public class Review {

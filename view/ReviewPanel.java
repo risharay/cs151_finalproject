@@ -1,5 +1,3 @@
-package cs151_finalproject;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -32,7 +30,6 @@ public class ReviewPanel extends JFrame {
     }
 
     public JList reviewLabels() {
-
         reviewJList = new JList();
         model = new DefaultListModel();
         for (Review r : reviews) {
@@ -47,24 +44,6 @@ public class ReviewPanel extends JFrame {
         reviewJList.setSelectionModel(new DisabledItemSelectionModel());
         return reviewJList;
     }
-
-    public JPanel formPanel() {
-        reviewJList = new JList();
-        model = new DefaultListModel();
-
-        for (Review r : reviews) {
-            model.addElement(r);
-        }
-        reviewJList.setModel(model);
-        reviewJList.setCellRenderer(new MyListCellRenderer());
-        // Review temp = new Review (5, "John Doe", "Test");
-        
-        // resJList.add(temp);
-
-        reviewJList.setSelectionModel(new DisabledItemSelectionModel());
-        return reviewJList;
-    }
-
 
     public JPanel formPanel() {
         JPanel namePanel = new JPanel();
@@ -98,11 +77,7 @@ public class ReviewPanel extends JFrame {
                 Review temp = new Review(Integer.parseInt(ratingInput.getText()), reviewInput.getText(), nameInput.getText());
                 reviews.add(temp);
                 model.addElement(temp);
-
-                System.out.println("Done");
-            } else { 
-                System.out.println("Failed");
-            }
+            } 
         });
 
     }
