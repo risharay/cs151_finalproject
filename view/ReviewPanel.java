@@ -1,4 +1,4 @@
-package cs151_finalproject.test;
+package cs151_finalproject;
 
 import javax.swing.*;
 import java.awt.*;
@@ -115,6 +115,7 @@ public class ReviewPanel extends JFrame {
         ReviewPanel graph = new ReviewPanel();
         graph.setSize(500, 500);
 
+    }
 
     private JLabel nameLabel = new JLabel("Name: ");
     private JLabel ratingLabel = new JLabel("Rating: ");
