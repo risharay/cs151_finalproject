@@ -40,31 +40,19 @@ public class ReservationPanel extends JFrame {
         this.reservation = reservation;
         this.reservations = new ArrayList<Reservation>();
 
-        //JPanel partyNamePanel = new JPanel();
         partyNamePanel.add(partyNameLabel);
         partyNamePanel.add(partyNameField);
         partyNameField.setText(partyName + "");
-
-
-        //JPanel partyNamePanelUpdated = new JPanel();
-        partyNamePanel.add(partyNameLabelUpdated);
+        partyNamePanelUpdated.add(partyNameLabelUpdated);
 
         partySizePanel.add(partySizeLabel);
         partySizePanel.add(partySizeField);
         partySizeField.setText(partySize + "");
+        partySizePanelUpdated.add(partySizeLabelUpdated);
 
-
-        //JPanel partySizePanelUpdated = new JPanel();
-        partyNamePanel.add(partySizeLabelUpdated);
-
-
-        //JPanel numberOfPartiesPanel = new JPanel();
         numberOfPartiesPanel.add(numberOfPartiesLabel);
 
-
-        //JPanel numberOfPartiesPanelUpdated = new JPanel();
-        partyNamePanel.add(numberOfPartiesLabelUpdated);
-
+        numberOfPartiesPanelUpdated.add(numberOfPartiesLabelUpdated);
 
         confirm = new JButton("Confirm");
         back = new JButton("Back");
