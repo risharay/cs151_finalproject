@@ -3,11 +3,15 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.util.ArrayList;
 
+/**
+ * Restaurant Panel where users can search for a restaurant or filter list of restaurants
+ */
 public class RestaurantPanel extends JFrame
 {
     public static ArrayList<Restaurant> restaurants = new ArrayList<>();
 
-    private JLabel search = new JLabel("Filter By:");
+    private JLabel search = new JLabel("Search Name:");
+    private JTextField searchBar = new JTextField(20);
     private JButton filter = new JButton("Filter");
     private String[] filterOptions = {"Cuisine", "Location", "Rating"};
     private JComboBox comboBox = new JComboBox(filterOptions);
@@ -18,10 +22,14 @@ public class RestaurantPanel extends JFrame
     JPanel panel1 = new JPanel();
     JPanel panel2 = new JPanel();
 
+    /**
+     * Design and functions for the Restaurant Panel
+     */
     public RestaurantPanel()
     {
         panel1.setLayout(new FlowLayout());
         panel1.add(search);
+        panel1.add(searchBar);
         panel1.add(comboBox);
         panel1.add(filter);
 
@@ -38,6 +46,7 @@ public class RestaurantPanel extends JFrame
         filter.addActionListener(filter -> updateList());
 
         frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
+        frame.setSize(500,500);
         frame.add(panel1);
         frame.add(panel2);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,11 +54,24 @@ public class RestaurantPanel extends JFrame
         frame.setVisible(true);
     }
 
+    /**
+     * Restaurant List update process when user presses filter button
+     */
     private void updateList()
     {
         this.model.removeAllElements();
 
-        if(comboBox.getSelectedItem().equals("Cuisine"))
+        if(!searchBar.getText().isBlank())
+        {
+            String restaurantName = searchBar.getText();
+            for(Restaurant r : restaurants)
+            {
+                if(restaurantName.compareTo(r.getName()) == 0) {
+                    model.addElement(r);
+                }
+            }
+        }
+        else if(comboBox.getSelectedItem().equals("Cuisine"))
         {
             Collections.sort(restaurants, new RestaurantCuisineComparator());
             for(Restaurant r : restaurants)
@@ -58,7 +80,7 @@ public class RestaurantPanel extends JFrame
             }
         }
 
-        if(comboBox.getSelectedItem().equals("Location"))
+        else if(comboBox.getSelectedItem().equals("Location"))
         {
             Collections.sort(restaurants, new RestaurantLocationComparator());
             for(Restaurant r : restaurants)
@@ -67,7 +89,7 @@ public class RestaurantPanel extends JFrame
             }
         }
 
-        if(comboBox.getSelectedItem().equals("Rating"))
+        else if(comboBox.getSelectedItem().equals("Rating"))
         {
             Collections.sort(restaurants, new RestaurantRatingComparator());
             for(Restaurant r : restaurants)
@@ -77,6 +99,9 @@ public class RestaurantPanel extends JFrame
         }
     }
 
+    /**
+     * Main to test
+     */
     public static void main(String[] args) {
         restaurants.add(new Restaurant("Panda Express", "Chinese", 3, 3.5));
         restaurants.add(new Restaurant("Spartan Tacos", "Mexican", 4, 5.0));
