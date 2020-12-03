@@ -51,7 +51,8 @@ public class ReservationPanel extends JFrame {
         partySizePanelUpdated.add(partySizeLabelUpdated);
 
         numberOfPartiesPanel.add(numberOfPartiesLabel);
-
+        numberOfPartiesLabel.setText("Number of Parties Ahead: " + String.valueOf(reservationId));
+        
         numberOfPartiesPanelUpdated.add(numberOfPartiesLabelUpdated);
 
         confirm = new JButton("Confirm");
