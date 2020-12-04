@@ -1,6 +1,11 @@
+package cs151_finalproject.view;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+
+import cs151_finalproject.model.Restaurant;
+
 import java.util.ArrayList;
 
 /**

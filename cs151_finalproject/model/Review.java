@@ -1,3 +1,4 @@
+package cs151_finalproject.model;
 // import java.util.Date;  
 
 public class Review {
