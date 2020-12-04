@@ -1,16 +1,16 @@
-package cs151_finalproject.controller;
+// import java.util.Date;  
 
 public class Review {
     // Variables
     int rating;
-    Date date;
+    // Date date;
     String comment;
     String name;
 
     // Constructor
-    public Review(int rating, Date date, String comment, String name){
+    public Review(int rating, String comment, String name){
 		this.rating = rating;
-		this.date = date;
+		// this.date = date;
         this.comment = comment;
         this.name = name;
     }
@@ -20,9 +20,9 @@ public class Review {
         return rating;
     }
 
-    public Date getDate() {
-        return date;
-    }
+    // public Date getDate() {
+    //     return date;
+    // }
 
     public String getComment() {
         return comment;
@@ -37,9 +37,9 @@ public class Review {
         this.rating = rating;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
+    // public void setDate(Date date) {
+    //     this.date = date;
+    // }
 
     public void setComment(String comment) {
         this.comment = comment;
@@ -47,5 +47,10 @@ public class Review {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "<html>Name: " + this.name + "<br>Rating: " + this.rating + "<br>Review: " + this.comment + "</html>";
     }
 }
