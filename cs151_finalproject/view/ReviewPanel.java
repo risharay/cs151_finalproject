@@ -1,4 +1,9 @@
+package cs151_finalproject.view;
+
 import javax.swing.*;
+
+import cs151_finalproject.model.Review;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
