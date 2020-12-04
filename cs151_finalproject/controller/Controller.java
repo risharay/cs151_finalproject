@@ -70,7 +70,7 @@ public class Controller {
     private class DoHitValve implements Valve {
         @Override
         public ValveResponse execute(Message message) {
-            if (message.getClass() != HitMessage.class) {
+            if (message.getClass() != ReservationPanelMessage.class) {
                 return ValveResponse.MISS;
             }
             // otherwise message is of HitMessage type
