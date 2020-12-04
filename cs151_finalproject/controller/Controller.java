@@ -1,6 +1,7 @@
 package cs151_finalproject.controller;
 
 import cs151_finalproject.view.View;
+import cs151_finalproject.model.Model;
 
 import java.util.LinkedList;
 import java.util.List;
