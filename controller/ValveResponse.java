@@ -1,8 +1,8 @@
-// package cs151_finalproject.controller;
+  package cs151_finalproject.controller;
 
-// public enum ValveResponse {
-//     MISS,
-//     EXECUTED,
-//     FINISH
-// }
+  public enum ValveResponse {
+       CONFIRM,
+      REJECT
+      
+ }
 
