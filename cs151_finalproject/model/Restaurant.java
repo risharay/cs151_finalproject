@@ -1,4 +1,4 @@
-package cs151_finalproject.controller;
+package cs151_finalproject.model;
 
 import java.util.List;
 import java.util.Comparator;
