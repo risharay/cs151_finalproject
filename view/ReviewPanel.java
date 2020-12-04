@@ -62,7 +62,13 @@ public class ReviewPanel extends JFrame {
         reviewPanel.add(reviewLabel);
         reviewPanel.add(reviewInput);
 
-        submitButton.addActionListener(confirm -> submit());
+        submitButton.addActionListener(e -> {
+            if(!nameInput.getText().isBlank() && !ratingInput.getText().isBlank() && !reviewInput.getText().isBlank()) {
+                Review temp = new Review(Integer.parseInt(ratingInput.getText()), reviewInput.getText(), nameInput.getText());
+                reviews.add(temp);
+                initializeReviewLabels();
+            } 
+        });
 
         JPanel formPanel = new JPanel();
         formPanel.add(namePanel);
@@ -73,16 +79,6 @@ public class ReviewPanel extends JFrame {
         return formPanel;
     }
 
-    private void submit() {
-        submitButton.addActionListener(e -> {
-            if(!nameInput.getText().isBlank() && !ratingInput.getText().isBlank() && !reviewInput.getText().isBlank()) {
-                Review temp = new Review(Integer.parseInt(ratingInput.getText()), reviewInput.getText(), nameInput.getText());
-                reviews.add(temp);
-                initializeReviewLabels();
-            } 
-        });
-
-    }
     public static void main(String[] args) {
 
         reviews.add(new Review(5, "Perfect!", "John Doe"));
@@ -98,9 +94,9 @@ public class ReviewPanel extends JFrame {
     private JLabel ratingLabel = new JLabel("Rating: ");
     private JLabel reviewLabel = new JLabel("Review: ");
     // private JLabel dateLabel;
-    private JTextField nameInput = new JTextField(15);
+    private JTextField nameInput = new JTextField(5);
     private JTextField ratingInput = new JTextField(1);
-    private JTextField reviewInput = new JTextField(25);
+    private JTextField reviewInput = new JTextField(10);
     private JButton submitButton = new JButton("Submit");
 
     private DefaultListModel model =  new DefaultListModel();
