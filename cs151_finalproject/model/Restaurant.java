@@ -69,6 +69,7 @@ public class Restaurant implements Comparable<Restaurant>
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public void makeReview(Review r) {
         reviews.add(r);
         calculateOverallRating();
@@ -91,6 +92,10 @@ public class Restaurant implements Comparable<Restaurant>
         Review newReview = new Review(rating, comment, name);
         reviews.add(newReview);
 >>>>>>> 86e5ec0... suppressed unnecessary warnings + fixed model class
+=======
+    public void makeReview(Review r) {
+        reviews.add(r);
+>>>>>>> 478e635... ReviewPanel.java references to model
     }
 
     public void calculateOverallRating() {

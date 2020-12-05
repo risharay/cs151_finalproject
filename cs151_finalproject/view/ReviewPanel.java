@@ -95,11 +95,8 @@ public class ReviewPanel extends JFrame {
 
     public static void main(String[] args) {
         // String name, String cuisine, int location, double rating
-<<<<<<< HEAD
         Restaurant test = new Restaurant("Panda Express", "Chinese", 3);
-=======
-        Restaurant test = new Restaurant("Panda Express", "Chinese", 3, 3.5);
->>>>>>> 320bcad... ReviewPanel.java references to model
+
         test.makeReview(new Review(5, "Perfect!", "John Doe"));
         test.makeReview(new Review(4, "So-so food, but great people.", "Jane Doe"));
         test.makeReview(new Review(1, "Abolutely horrible >:(", "Bad Reviewer"));
