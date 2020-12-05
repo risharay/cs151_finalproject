@@ -94,6 +94,15 @@ public class Restaurant implements Comparable<Restaurant>
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Restaurant) {
+            Restaurant other = (Restaurant) obj;
+            return this.name == other.name ;
+        }
+        return false;
+    }
+
+    @Override
     public String toString() {
         return name + ", Cuisine = " + cuisine + ", " + distance + " miles away, " + rating + "/5";
     }
