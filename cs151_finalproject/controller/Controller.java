@@ -15,27 +15,30 @@
  private List<Valve> valves = new LinkedList<Valve>();
 
     public Controller(View view, Model model, BlockingQueue<Message> queue) {
-//         this.view = view;
-//         this.model = model;
-//         this.queue = queue;
-//         // example
-         valves.add(new DoNewGameValve());
-         valves.add(new DoHitValve());
+           this.view = view;
+           this.model = model;
+           this.queue = queue;
+
+         valves.add(new ReviewPanelValve());
+         valves.add(new RestaurantPanelValve());
+         valves.add(new ReservationPanelValve());
+         valves.add(new MadeReviewValve());
+         valves.add(new MadeReservationValve());
+         valves.add(new MadeSearchValve());
  }
 
-    public void mainLoop() {
-// ValveResponse response = ValveResponse.EXECUTED;
-//         Message message = null;
-//        while (response != ValveResponse.FINISH) {
-//            try {
-//                 message = queue.take(); // <--- take next message from the queue
-//              } catch (InterruptedException e) {
-//                  e.printStackTrace();
-//              }
-//               Look for a Valve that can process a message
+ public void mainLoop() {
+        ValveResponse response = ValveResponse.CONFIRM;
+        Message message = null;
+        while (response != ValveResponse.FINISH) {
+              try {
+                 message = queue.take(); 
+              } catch (InterruptedException e) {
+                 e.printStackTrace();
+              }
                for (Valve valve : valves) {
                    response = valve.execute(message);
-//                 // if successfully processed or game over, leave the loop
+
                        if (response != ValveResponse.REJECT) {
                        break;
                          }

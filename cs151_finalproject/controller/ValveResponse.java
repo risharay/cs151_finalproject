@@ -3,7 +3,8 @@
 
   public enum ValveResponse {
        CONFIRM,
-      REJECT
+       REJECT,
+       FINISH
       
  }
 
