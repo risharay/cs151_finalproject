@@ -92,27 +92,30 @@ public class ReservationPanel extends JFrame {
         int size = Integer.parseInt(partySizeField.getText());
         String name = partyNameField.getText();
 
-        partySizePanel.remove(partySizeField);
+        
         reservations.add(new Reservation(reservationId, size, name));
-        for (int i = 0; i < reservations.size(); i++) {
+        JOptionPane.showMessageDialog(null,"Party Name: " +reservations.get(reservations.size()-1).getPartyName() + " Party Size: " + reservations.get(reservations.size()-1).getPartySize() + " Number of Parties Ahead: " + reservations.get(reservations.size()-1).getReservationId());
+       
+        //for (int i = 0; i < reservations.size(); i++) {
 
             //Debugging
-            System.out.println(reservations.get(i).getPartyName());
-            System.out.println(reservations.get(i).getPartySize());
-            System.out.println(String.valueOf(reservations.get(i).getReservationId()));
+//            System.out.println(reservations.get(i).getPartyName());
+//            System.out.println(reservations.get(i).getPartySize());
+//            System.out.println(String.valueOf(reservations.get(i).getReservationId()));
 
-            partyNameLabelUpdated.setText("Party Name: " + reservations.get(i).getPartyName());
-            partySizeLabelUpdated.setText("Party Size: " + reservations.get(i).getPartySize());
-            numberOfPartiesLabelUpdated.setText("Number of Parties Ahead: " + String.valueOf(reservations.get(i).getReservationId()));
-            numberOfPartiesLabel.setText("Number of Parties Ahead: " + String.valueOf(reservations.get(i).getReservationId()));
+            //partyNameLabelUpdated.setText("Party Name: " + reservations.get(i).getPartyName());
+            //partySizeLabelUpdated.setText("Party Size: " + reservations.get(i).getPartySize());
+           // numberOfPartiesLabelUpdated.setText("Number of Parties Ahead: " + String.valueOf(reservations.get(i).getReservationId()));
+           // numberOfPartiesLabel.setText("Number of Parties Ahead: " + String.valueOf(reservations.get(i).getReservationId()));
 
-            partyNameLabel.setVisible(false);
-            partyNameField.setVisible(false);
-            partySizeLabel.setVisible(false);
-            partySizeField.setVisible(false);
-            numberOfPartiesLabel.setVisible(false);
-            confirm.setVisible(false);
-        }
+           // partyNameLabel.setVisible(true);
+           // partyNameField.setVisible(true);
+           // partySizeLabel.setVisible(true);
+           // partySizeField.setVisible(true);
+           
+           // numberOfPartiesLabel.setVisible(true);
+           // confirm.setVisible(true);
+       // }
     }
 
     /**
