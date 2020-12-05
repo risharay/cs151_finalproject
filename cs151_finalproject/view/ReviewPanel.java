@@ -97,6 +97,7 @@ public class ReviewPanel extends JFrame {
         // String name, String cuisine, int location, double rating
         Restaurant test = new Restaurant("Panda Express", "Chinese", 3);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 72be4ab... shared model WIP
@@ -104,6 +105,12 @@ public class ReviewPanel extends JFrame {
         test.makeReview(new Review(4, "So-so food, but great people.", "Jane Doe"));
         test.makeReview(new Review(1, "Abolutely horrible >:(", "Bad Reviewer"));
 
+=======
+        test.makeReview(new Review(5, "Perfect!", "John Doe"));
+        test.makeReview(new Review(4, "So-so food, but great people.", "Jane Doe"));
+        test.makeReview(new Review(1, "Abolutely horrible >:(", "Bad Reviewer"));
+
+>>>>>>> 72be4abde6a466a7d8883abbff594d72c3361606
         ReviewPanel graph = new ReviewPanel(test);
         graph.setSize(500, 500);
 

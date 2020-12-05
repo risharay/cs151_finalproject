@@ -70,6 +70,7 @@ public class Restaurant implements Comparable<Restaurant>
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public void makeReview(Review r) {
         reviews.add(r);
         calculateOverallRating();
@@ -100,6 +101,11 @@ public class Restaurant implements Comparable<Restaurant>
 =======
         calculateOverallRating();
 >>>>>>> 72be4ab... shared model WIP
+=======
+    public void makeReview(Review r) {
+        reviews.add(r);
+        calculateOverallRating();
+>>>>>>> 72be4abde6a466a7d8883abbff594d72c3361606
     }
 
     public void calculateOverallRating() {
