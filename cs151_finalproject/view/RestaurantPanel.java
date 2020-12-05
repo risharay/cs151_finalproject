@@ -5,10 +5,11 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import cs151_finalproject.model.Restaurant;
-//import cs151_finalproject.model.RestaurantCuisineComparator;
-//import cs151_finalproject.model.RestaurantLocationComparator;
-//import cs151_finalproject.model.RestaurantRatingComparator;
+import cs151_finalproject.model.RestaurantCuisineComparator;
+import cs151_finalproject.model.RestaurantLocationComparator;
+import cs151_finalproject.model.RestaurantRatingComparator;
 
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -17,7 +18,7 @@ import java.util.Collections;
  */
 public class RestaurantPanel extends JFrame
 {
-    public static ArrayList<Restaurant> restaurants = new ArrayList<>();
+    public static List<Restaurant> restaurants = new ArrayList<>();
 
     private JLabel search = new JLabel("Search Name:");
     private JTextField searchBar = new JTextField(20);
@@ -106,22 +107,5 @@ public class RestaurantPanel extends JFrame
                 model.addElement(r);
             }
         }
-    }
-
-    /**
-     * Main to test
-     */
-    public static void main(String[] args) {
-        restaurants.add(new Restaurant("Panda Express", "Chinese", 3, 3.5));
-        restaurants.add(new Restaurant("Spartan Tacos", "Mexican", 4, 5.0));
-        restaurants.add(new Restaurant("Jack in the Box", "Fast Food", 1, 2.3));
-        restaurants.add(new Restaurant("Iguanas", "Mexican", 2, 4.5));
-        restaurants.add(new Restaurant("McDonald's", "Fast Food", 1, 2.1));
-        restaurants.add(new Restaurant("In-n-Out", "Fast Food", 5, 4.8));
-        restaurants.add(new Restaurant("La Vic's", "Mexican", 2, 3.8));
-        restaurants.add(new Restaurant("PF Chang's", "Chinese", 3, 3.7));
-        restaurants.add(new Restaurant("King Eggroll", "Chinese", 6, 3.2));
-
-        RestaurantPanel lol = new RestaurantPanel();
     }
 }

@@ -39,7 +39,7 @@ public class View {
 
         viewRestaurant.addActionListener(event -> {
             try {
-                this.queue.put(new RestaurantPanelMessage());   // <-- adding message to the queue
+                this.queue.put(new RestaurantPanelMessage(true));   // <-- adding message to the queue
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -47,7 +47,7 @@ public class View {
 
         viewReservation.addActionListener(event -> {
             try {
-                this.queue.put(new ReservationPanelMessage());  // <-- adding message to the queue
+                this.queue.put(new ReservationPanelMessage(true));  // <-- adding message to the queue
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -55,7 +55,7 @@ public class View {
 
         viewReview.addActionListener(event -> {
             try {
-                this.queue.put(new ReviewPanelMessage());       // <-- adding message to the queue
+                this.queue.put(new ReviewPanelMessage(true));       // <-- adding message to the queue
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
