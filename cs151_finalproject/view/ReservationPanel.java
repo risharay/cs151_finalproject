@@ -13,7 +13,6 @@ import java.util.ArrayList;
  * Reservation Panel where users can make a reservation for the restaurant
  */
 public class ReservationPanel extends JFrame {
-    private Reservation reservation;
     private JLabel partyNameLabel = new JLabel("Party Name: ");
     private JLabel partyNameLabelUpdated = new JLabel();
     private JLabel partySizeLabel = new JLabel("Party Size: ");
@@ -43,18 +42,15 @@ public class ReservationPanel extends JFrame {
      * @param partyName Party Name string
      * @param partySize Party Size int
      */
-    public ReservationPanel(String partyName, int partySize) {
-        this.reservation = reservation;
+    public ReservationPanel() {
         this.reservations = new ArrayList<Reservation>();
 
         partyNamePanel.add(partyNameLabel);
         partyNamePanel.add(partyNameField);
-        partyNameField.setText(partyName + "");
         partyNamePanelUpdated.add(partyNameLabelUpdated);
 
         partySizePanel.add(partySizeLabel);
         partySizePanel.add(partySizeField);
-        partySizeField.setText(partySize + "");
         partySizePanelUpdated.add(partySizeLabelUpdated);
 
         numberOfPartiesPanel.add(numberOfPartiesLabel);
@@ -126,7 +122,6 @@ public class ReservationPanel extends JFrame {
      * Main Method to see how it runs
      */
     public static void main(String args[]) {
-        Reservation reservation = new Reservation(0, 0, null);
-        ReservationPanel reservationFrame = new ReservationPanel(null, 0);
+        ReservationPanel reservationFrame = new ReservationPanel();
     }
 }
