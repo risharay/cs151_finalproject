@@ -7,6 +7,6 @@ public class RestaurantLocationComparator implements Comparator<Restaurant>
     @Override
     public int compare(Restaurant r1, Restaurant r2)
     {
-        return r1.getLocation() - r2.getLocation();
+        return r1.getDistance() - r2.getDistance();
     }
 }

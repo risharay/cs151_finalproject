@@ -86,7 +86,7 @@ public class ReservationPanel extends JFrame {
         String name = partyNameField.getText();
 
         partySizePanel.remove(partySizeField);
-        reservations.add(new Reservation(reservationId, size, name));
+        reservations.add(new Reservation(size, name));
         for (int i = 0; i < reservations.size(); i++) {
 
             //Debugging
@@ -118,9 +118,6 @@ public class ReservationPanel extends JFrame {
      * Main Method to see how it runs
      */
     public static void main(String args[]) {
-        Restaurant test = new Restaurant("Panda Express", "Chinese", 3);
-        test.makeReservation(new Reservation(1, 6, "Risha"));
-
-        ReservationPanel reservationFrame = new ReservationPanel(test);
+        // ReservationPanel(test);
     }
 }

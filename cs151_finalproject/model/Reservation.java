@@ -7,8 +7,7 @@ public class Reservation{
     String partyName;
 
     // Constructor
-    public Reservation(int reservationId, int partySize,String partyName){
-        this.reservationId = reservationId;
+    public Reservation(int partySize,String partyName){
         this.partySize = partySize;
         this.partyName = partyName;
     }
