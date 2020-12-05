@@ -3,10 +3,9 @@ package cs151_finalproject.view;
 import javax.swing.*;
 
 import cs151_finalproject.model.Reservation;
+import cs151_finalproject.model.Restaurant;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.List;
 import java.util.ArrayList;
 
 /**
@@ -34,7 +33,7 @@ public class ReservationPanel extends JFrame {
     private JButton confirm;
     private JButton back;
 
-    ArrayList<Reservation> reservations;
+    static List<Reservation> reservations = new ArrayList<>();
 
     /**
      * Design and functions for the Reservation Panel
@@ -42,8 +41,8 @@ public class ReservationPanel extends JFrame {
      * @param partyName Party Name string
      * @param partySize Party Size int
      */
-    public ReservationPanel() {
-        this.reservations = new ArrayList<Reservation>();
+    public ReservationPanel(Restaurant restaurant) {
+        setReservations(restaurant.getReservations());
 
         partyNamePanel.add(partyNameLabel);
         partyNamePanel.add(partyNameField);
@@ -62,8 +61,6 @@ public class ReservationPanel extends JFrame {
         back = new JButton("Back");
 
         confirm.addActionListener(confirm -> updateValues());
-        back.addActionListener(back -> goBack());
-
 
         frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         frame.setSize(500, 500);
@@ -111,11 +108,10 @@ public class ReservationPanel extends JFrame {
         }
     }
 
-    /**
-     * Goes back to main page when user presses confirm button
-     */
-    private void goBack() {
-        // TO DO
+    private static void setReservations(List<Reservation> res) {
+        for(Reservation r : res) {
+            reservations.add(r);
+        }
     }
 
     /**
