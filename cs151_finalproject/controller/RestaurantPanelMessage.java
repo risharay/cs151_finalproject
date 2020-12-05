@@ -1,5 +1,6 @@
 package cs151_finalproject.controller;
 
+@SuppressWarnings("serial")
 public class RestaurantPanelMessage implements Message {
     private boolean confirm;
 

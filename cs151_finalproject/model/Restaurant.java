@@ -57,19 +57,18 @@ public class Restaurant implements Comparable<Restaurant>
     }
 
     // Review methods
-    public boolean makeReview(int rating, String comment, String name) {
+    public void makeReview(int rating, String comment, String name) {
         Review newReview = new Review(rating, comment, name);
         reviews.add(newReview);
-        return true;
     }
 
-    public double calculateOverallRating() {
+    public void calculateOverallRating() {
         double totalRating = 0;
         for(Review r : reviews)
         {
             totalRating += r.getRating();
         }
-        return totalRating;
+        setRating(totalRating);
     }
 
     // Reservation methods
