@@ -1,72 +1,80 @@
 package cs151_finalproject.view;
 
+import cs151_finalproject.model.Restaurant;
+
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.awt.*;
 
-public class IndividualRestaurantPanel extends JFrame {
+@SuppressWarnings("serial")
+public class IndividualRestaurantPanel extends JPanel {
     private JButton seeReviews;
     private JButton makeReservation;
     private JButton back;
-    private JLabel restaurantName = new JLabel("Taco Bell ");
-    private JLabel restaurantLocation = new JLabel("San Jose, CA ");
-    private JLabel restaurantRating = new JLabel("Rating: 3 ");
+    private JLabel restaurantName;
+    private JLabel restaurantDistance;
+    private JLabel restaurantRating;
     JPanel restaurantInformationPanel = new JPanel();
     JFrame frame = new JFrame();
     JPanel buttons = new JPanel();
 
     String arial = "Arial";
 
-    public IndividualRestaurantPanel() {
+    public IndividualRestaurantPanel(Restaurant restaurant) {
+        restaurantName = new JLabel(restaurant.getName());
+        restaurantDistance = new JLabel(String.valueOf(restaurant.getDistance()) + " miles away");
+        restaurantRating = new JLabel("Rating: " + restaurant.getRating());
 
-    	restaurantName.setFont(new Font(arial, Font.BOLD, 25));
-    	restaurantLocation.setFont(new Font(arial, Font.PLAIN, 15));
-    	restaurantRating.setFont(new Font(arial, Font.PLAIN, 15));
+    	restaurantName.setFont(new Font(arial, Font.BOLD, 40));
+    	restaurantDistance.setFont(new Font(arial, Font.PLAIN, 20));
+        restaurantRating.setFont(new Font(arial, Font.PLAIN, 20));
+        
         restaurantInformationPanel.add(restaurantName);
-        restaurantInformationPanel.add(restaurantLocation);
+        restaurantInformationPanel.add(restaurantDistance);
         restaurantInformationPanel.add(restaurantRating);
+        restaurantInformationPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
+        restaurantInformationPanel.setLayout(new BoxLayout(restaurantInformationPanel, BoxLayout.Y_AXIS));
+        restaurantInformationPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
+
         seeReviews = new JButton("See Reviews");
         makeReservation = new JButton("Make Reservation");
         back = new JButton("Back");
-        seeReviews.addActionListener(seeReviews -> seeReviews());
-        makeReservation.addActionListener(makeReservation -> makeReservation());
-        back.addActionListener(back -> back());
+        // seeReviews.addActionListener(seeReviews -> seeReviews());
+        // makeReservation.addActionListener(makeReservation -> makeReservation());
+        // back.addActionListener(back -> back());
 
         buttons.add(seeReviews);
         buttons.add(makeReservation);
         buttons.add(back);
+        buttons.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
-        frame.setPreferredSize(new Dimension(500, 500));
         frame.add(restaurantInformationPanel);
         frame.add(buttons);
+
+        frame.setPreferredSize(new Dimension(500, 500));
+        frame.setLayout((LayoutManager) new FlowLayout(FlowLayout.LEFT));
+        // frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
     }
-    private void seeReviews() {
+    // private void seeReviews() {
 
 
-    }
+    // }
 
-    private void makeReservation() {
+    // private void makeReservation() {
 
-    }
+    // }
 
-    private void back() {
+    // private void back() {
 
-    }
+    // }
 
     public static void main(String[] args) {
-
-        IndividualRestaurantPanel individualRestaurantPanel = new IndividualRestaurantPanel();
-
+        new IndividualRestaurantPanel(new Restaurant("Panda Express", "Chinese"));
     }
 
 }

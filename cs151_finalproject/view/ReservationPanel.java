@@ -1,17 +1,21 @@
 package cs151_finalproject.view;
 
-import javax.swing.*;
-
 import cs151_finalproject.model.Reservation;
 import cs151_finalproject.model.Restaurant;
 
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+
 import java.util.List;
 import java.util.ArrayList;
+import java.awt.*;
 
 /**
  * Reservation Panel where users can make a reservation for the restaurant
  */
+@SuppressWarnings("serial")
 public class ReservationPanel extends JFrame {
+    private JLabel titleLabel = new JLabel("Make a Reservation");
     private JLabel partyNameLabel = new JLabel("Party Name: ");
     private JLabel partyNameLabelUpdated = new JLabel();
     private JLabel partySizeLabel = new JLabel("Party Size: ");
@@ -44,6 +48,9 @@ public class ReservationPanel extends JFrame {
     public ReservationPanel(Restaurant restaurant) {
         setReservations(restaurant.getReservations());
 
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 30));
+        titleLabel.setBorder(new EmptyBorder(10,0,10,0));
+
         partyNamePanel.add(partyNameLabel);
         partyNamePanel.add(partyNameField);
         partyNamePanelUpdated.add(partyNameLabelUpdated);
@@ -54,24 +61,38 @@ public class ReservationPanel extends JFrame {
 
         numberOfPartiesPanel.add(numberOfPartiesLabel);
         numberOfPartiesLabel.setText("Number of Parties Ahead: " + String.valueOf(reservationId));
+        
+//        JPanel inputs = new JPanel();
+//        inputs.add(partyNamePanel);
+//        inputs.add(partyNamePanelUpdated);
+//        inputs.add(partySizePanel);
+//        inputs.add(partySizePanelUpdated);
+//        inputs.add(numberOfPartiesPanel);
+//        inputs.add(numberOfPartiesPanelUpdated);
+//        
 
         numberOfPartiesPanelUpdated.add(numberOfPartiesLabelUpdated);
 
         confirm = new JButton("Confirm");
         back = new JButton("Back");
+        
+        JPanel buttons = new JPanel();
+        buttons.add(confirm);
+        buttons.add(back);
 
         confirm.addActionListener(confirm -> updateValues());
 
         frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         frame.setSize(500, 500);
+        frame.add(titleLabel);
         frame.add(partyNamePanel, JFrame.LEFT_ALIGNMENT);
         frame.add(partyNamePanelUpdated, JFrame.LEFT_ALIGNMENT);
         frame.add(partySizePanel, JFrame.LEFT_ALIGNMENT);
         frame.add(partySizePanelUpdated, JFrame.LEFT_ALIGNMENT);
         frame.add(numberOfPartiesPanel, JFrame.LEFT_ALIGNMENT);
         frame.add(numberOfPartiesPanelUpdated, JFrame.LEFT_ALIGNMENT);
-        frame.add(confirm);
-        frame.add(back);
+//        frame.add(inputs);
+        frame.add(buttons);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
@@ -87,7 +108,7 @@ public class ReservationPanel extends JFrame {
 
         
         reservations.add(new Reservation(size, name));
-        JOptionPane.showMessageDialog(null,"Party Name: " +reservations.get(reservations.size()-1).getPartyName() + " Party Size: " + reservations.get(reservations.size()-1).getPartySize() + " Number of Parties Ahead: " + reservations.get(reservations.size()-1).getReservationId());
+        JOptionPane.showMessageDialog(null,reservations.get(reservations.size()-1));
        
         //for (int i = 0; i < reservations.size(); i++) {
 
@@ -121,6 +142,6 @@ public class ReservationPanel extends JFrame {
      * Main Method to see how it runs
      */
     public static void main(String args[]) {
-        // ReservationPanel(test);
+        new ReservationPanel(new Restaurant("Panda Express", "Chinese"));
     }
 }

@@ -1,15 +1,14 @@
 package cs151_finalproject.model;
 
-import java.util.List;
-import java.util.Comparator;
-import java.util.ArrayList;
+import java.util.*;
+import java.security.SecureRandom;
 
 public class Restaurant implements Comparable<Restaurant>
 {
     // Variables
     String name;
     String cuisine;
-    int distance;
+    double distance;
     double rating;
     private List<Review> reviews = new ArrayList<>();
     private List<Reservation> reservations = new ArrayList<>();
@@ -42,7 +41,7 @@ public class Restaurant implements Comparable<Restaurant>
         this.cuisine = cuisine;
     }
 
-    public int getDistance() {
+    public double getDistance() {
         return distance;
     }
 
@@ -120,8 +119,11 @@ public class Restaurant implements Comparable<Restaurant>
         fakeReviews.add(new Review(2, "Horrible wait time and the waiter was rude, but food OK.", "Terilyn Tran"));
         fakeReviews.add(new Review(4, "The restaurant wasn't the cleanest, but best food I've ever had.", "Katherine Byun"));
 
-        for(int i = 0; i < (Math.random() * 8 + 1); i++) 
-            this.makeReview(fakeReviews.get(i));
+        Random rand = new SecureRandom();
+        for(int i = 0; i < rand.nextInt(8); i++) {
+            int num = rand.nextInt(8);
+            this.makeReview(fakeReviews.get(num));
+        }
     }
 
     private void reservationGenerator() {
@@ -136,8 +138,11 @@ public class Restaurant implements Comparable<Restaurant>
         fakeReservations.add(new Reservation(4, "Michael Su"));
         fakeReservations.add(new Reservation(4, "Kevin Miller"));
 
-        for(int i = 0; i < (Math.random() * 8 + 1); i++) 
-            this.makeReservation(fakeReservations.get(i));
+        Random rand = new SecureRandom();
+        for(int i = 0; i < rand.nextInt(8); i++) {
+            int num = rand.nextInt(8);
+            this.makeReservation(fakeReservations.get(num));
+        }
     }
 
     public static double randomLocation() {

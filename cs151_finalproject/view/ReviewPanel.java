@@ -1,11 +1,9 @@
 package cs151_finalproject.view;
 
-
-import javax.swing.*;
-
 import cs151_finalproject.model.Review;
 import cs151_finalproject.model.Restaurant;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -33,7 +31,6 @@ public class ReviewPanel extends JFrame {
         contentPane.add(scrollPane, BorderLayout.CENTER);
 
         frame.add(backButton, BorderLayout.SOUTH);
-
         frame.setPreferredSize(new Dimension(500, 500));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
@@ -94,11 +91,7 @@ public class ReviewPanel extends JFrame {
     }
 
     public static void main(String[] args) {
-        // String name, String cuisine, int location, double rating
-        Restaurant test = new Restaurant("Panda Express", "Chinese", 3);
-        test.makeReview(new Review(5, "Perfect!", "John Doe"));
-        test.makeReview(new Review(4, "So-so food, but great people.", "Jane Doe"));
-        test.makeReview(new Review(1, "Abolutely horrible >:(", "Bad Reviewer"));
+        Restaurant test = new Restaurant("Panda Express", "Chinese");
 
         ReviewPanel graph = new ReviewPanel(test);
         graph.setSize(500, 500);
