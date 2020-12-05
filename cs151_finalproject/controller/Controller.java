@@ -34,6 +34,7 @@ public class Controller {
         message = queue.take(); 
     } catch (InterruptedException e) {
         e.printStackTrace();
+        Thread.currentThread().interrupt(); // fixes the re-interrupt warning
     }
       for (Valve valve : valves) {
         response = valve.execute(message);
@@ -55,6 +56,7 @@ public class Controller {
       if (message.getClass() != ReviewPanelMessage.class) {
         return ValveResponse.REJECT;
       }
+      // call view to change panel
       return ValveResponse.CONFIRM;
     }
   }
@@ -65,6 +67,7 @@ public class Controller {
       if (message.getClass() != RestaurantPanelMessage.class) {
         return ValveResponse.REJECT;
       }
+      // call view to change panel
       return ValveResponse.CONFIRM;
     }
   }
@@ -75,16 +78,18 @@ public class Controller {
       if (message.getClass() != ReservationPanelMessage.class) {
         return ValveResponse.REJECT;
       }
+      // call view to change panel
       return ValveResponse.CONFIRM;
     }
   }
-
+  
   private class MadeReviewValve implements Valve {
     @Override
     public ValveResponse execute(Message message) {
       if (message.getClass() != ReviewMadeMessage.class) {
         return ValveResponse.REJECT;
       }
+      // create review
       return ValveResponse.CONFIRM;
     }
   }
@@ -95,6 +100,7 @@ public class Controller {
       if (message.getClass() != ReservationMadeMessage.class) {
         return ValveResponse.REJECT;
       }
+      // create reservation
       return ValveResponse.CONFIRM;
     }
   }
@@ -105,6 +111,7 @@ public class Controller {
       if (message.getClass() != SearchMadeMessage.class) {
         return ValveResponse.REJECT;
       }
+      // call search
       return ValveResponse.CONFIRM;
     }
   }
