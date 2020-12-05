@@ -110,6 +110,12 @@ public class View {
         mainFrame.setVisible(true);
     }
 
+    public void changeFrame(JFrame f1, JFrame f2)
+    {
+        f2.setVisible(true);
+        f1.dispose();
+    }
+
     public void change() {
         // TODO: do all the updates and repaint
         //gameFrame.repaint();
