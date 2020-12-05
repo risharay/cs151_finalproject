@@ -1,5 +1,3 @@
-package cs151_finalproject.model;
-
 public class Model {
     Reservation reservation;
     Restaurant restaurant;

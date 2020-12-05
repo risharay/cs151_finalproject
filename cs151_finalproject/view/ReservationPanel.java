@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
 /**
  * Reservation Panel where users can make a reservation for the restaurant
  */
@@ -38,6 +39,7 @@ public class ReservationPanel extends JFrame {
 
     /**
      * Design and functions for the Reservation Panel
+     *
      * @param partyName Party Name string
      * @param partySize Party Size int
      */
@@ -57,7 +59,7 @@ public class ReservationPanel extends JFrame {
 
         numberOfPartiesPanel.add(numberOfPartiesLabel);
         numberOfPartiesLabel.setText("Number of Parties Ahead: " + String.valueOf(reservationId));
-        
+
         numberOfPartiesPanelUpdated.add(numberOfPartiesLabelUpdated);
 
         confirm = new JButton("Confirm");
@@ -68,7 +70,7 @@ public class ReservationPanel extends JFrame {
 
 
         frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
-        frame.setSize(500,500);
+        frame.setSize(500, 500);
         frame.add(partyNamePanel, JFrame.LEFT_ALIGNMENT);
         frame.add(partyNamePanelUpdated, JFrame.LEFT_ALIGNMENT);
         frame.add(partySizePanel, JFrame.LEFT_ALIGNMENT);
@@ -81,6 +83,7 @@ public class ReservationPanel extends JFrame {
         frame.setVisible(true);
 
     }
+
     /**
      * Reservation List update process when user presses confirm button
      */
@@ -115,14 +118,14 @@ public class ReservationPanel extends JFrame {
     /**
      * Goes back to main page when user presses confirm button
      */
-    private void goBack(){
+    private void goBack() {
     }
 
     /**
      * Main Method to see how it runs
      */
     public static void main(String args[]) {
-        Reservation reservation = new Reservation(0,0,null);
-        ReservationPanel reservationFrame = new ReservationPanel(null,0);
+        Reservation reservation = new Reservation(0, 0, null);
+        ReservationPanel reservationFrame = new ReservationPanel(null, 0);
     }
 }
