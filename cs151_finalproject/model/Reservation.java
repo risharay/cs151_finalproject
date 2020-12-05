@@ -37,4 +37,9 @@ public class Reservation{
     public void setPartyName(String partyName){
         this.partyName= partyName;
     }
+    
+    @Override
+    public String toString() {
+        return "<html>Party Name: " + this.partyName + "<br>Party Size " + this.partySize + "<br>Number of Parties Waiting: " + this.reservationId + "</html>";
+    }
 }
