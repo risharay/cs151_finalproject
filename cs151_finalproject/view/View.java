@@ -1,6 +1,9 @@
 package cs151_finalproject.view;
 
 import javax.swing.*;
+
+import cs151_finalproject.controller.Message;
+
 import java.awt.*;
 import java.util.concurrent.BlockingQueue;
 

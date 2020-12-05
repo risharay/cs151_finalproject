@@ -5,6 +5,9 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import cs151_finalproject.model.Restaurant;
+import cs151_finalproject.model.RestaurantCuisineComparator;
+import cs151_finalproject.model.RestaurantLocationComparator;
+import cs151_finalproject.model.RestaurantRatingComparator;
 
 import java.util.ArrayList;
 
