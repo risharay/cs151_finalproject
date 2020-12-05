@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
@@ -22,9 +23,12 @@ public class IndividualRestaurantPanel extends JFrame {
 
     public IndividualRestaurantPanel() {
 
+    	restaurantName.setFont(new Font("Arial", Font.BOLD, 25));
+    	restaurantLocation.setFont(new Font("Arial", Font.PLAIN, 15));
+    	restaurantRating.setFont(new Font("Arial", Font.PLAIN, 15));
         restaurantInformationPanel.add(restaurantName);
-        restaurantInformationPanel.add(restaurantRating);
         restaurantInformationPanel.add(restaurantLocation);
+        restaurantInformationPanel.add(restaurantRating);
         seeReviews = new JButton("See Reviews");
         makeReservation = new JButton("Make Reservation");
         back = new JButton("Back");
@@ -37,7 +41,7 @@ public class IndividualRestaurantPanel extends JFrame {
         buttons.add(back);
 
         frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
-        frame.setSize(500, 500);
+        frame.setPreferredSize(new Dimension(500, 500));
         frame.add(restaurantInformationPanel);
         frame.add(buttons);
         frame.pack();
