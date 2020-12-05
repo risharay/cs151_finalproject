@@ -15,12 +15,12 @@ public class Restaurant implements Comparable<Restaurant>
     private List<Reservation> reservations = new ArrayList<>();
 
     // Constructor
-    public Restaurant(String name, String cuisine, int location, double rating)
+    public Restaurant(String name, String cuisine, int location)
     {
         this.name = name;
         this.cuisine = cuisine;
         this.location = location;
-        this.rating = rating;
+        setRating(0);
     }
 
     // Getters and setters
@@ -67,6 +67,7 @@ public class Restaurant implements Comparable<Restaurant>
     // Review methods
     public void makeReview(Review r) {
         reviews.add(r);
+        calculateOverallRating();
     }
 
     public void calculateOverallRating() {
