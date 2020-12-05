@@ -4,7 +4,6 @@ import java.util.*;
 
 public class Model {
     List<Restaurant> restaurants = new ArrayList<>();
-<<<<<<< HEAD
 
     public Model() {
         restaurants.add(new Restaurant("Panda Express", "Chinese", 3));
@@ -17,6 +16,4 @@ public class Model {
         restaurants.add(new Restaurant("PF Chang's", "Chinese", 3));
         restaurants.add(new Restaurant("King Eggroll", "Chinese", 6));
     }
-=======
->>>>>>> 86e5ec0... suppressed unnecessary warnings + fixed model class
 }
