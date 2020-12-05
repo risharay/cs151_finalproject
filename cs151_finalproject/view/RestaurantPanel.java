@@ -1,7 +1,16 @@
+package cs151_finalproject.view;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+
+import cs151_finalproject.model.Restaurant;
+//import cs151_finalproject.model.RestaurantCuisineComparator;
+//import cs151_finalproject.model.RestaurantLocationComparator;
+//import cs151_finalproject.model.RestaurantRatingComparator;
+
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Restaurant Panel where users can search for a restaurant or filter list of restaurants

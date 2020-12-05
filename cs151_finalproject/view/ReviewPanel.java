@@ -1,21 +1,23 @@
+package cs151_finalproject.view;
+
+
 import javax.swing.*;
+
+import cs151_finalproject.model.Review;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-// import java.text.SimpleDateFormat;  
-// import java.util.Date;  
-
 public class ReviewPanel extends JFrame {
     public static ArrayList<Review> reviews = new ArrayList<>();
-    // SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");  
-    // Date date = new Date();  
 
     public void addActionListener(ActionListener a){
         submitButton.addActionListener(a);
     }
 
+    // the frame itself
     public ReviewPanel() {
         JFrame frame = new JFrame();
         frame.add(formPanel(), BorderLayout.NORTH);
@@ -32,7 +34,10 @@ public class ReviewPanel extends JFrame {
         frame.setVisible(true);
     }
 
+    // sets up the JList of reviews and adds additional configurations
+    // e.g. * disables selection (view only)
     public void initializeReviewLabels() {
+        // clears the list and reinitializes it due to error with the automatic refresh of JList
         model.clear();
         reviewJList = new JList(model);
         for (Review r : reviews) {
@@ -40,13 +45,12 @@ public class ReviewPanel extends JFrame {
         }
         reviewJList.setModel(model);
         reviewJList.setCellRenderer(new MyListCellRenderer());
-        // Review temp = new Review (5, "John Doe", "Test");
-        
-        // resJList.add(temp);
-
+    
         reviewJList.setSelectionModel(new DisabledItemSelectionModel());
     }
-
+    
+    // the submission panel for users to input:
+    // name, rating, and comment
     public JPanel formPanel() {
         JPanel namePanel = new JPanel();
         namePanel.add(nameLabel);
@@ -55,8 +59,6 @@ public class ReviewPanel extends JFrame {
         JPanel detailPanel = new JPanel();
         detailPanel.add(ratingLabel);
         detailPanel.add(ratingInput);
-        // dateLabel.setText(formatter.format(date));
-        // detailPanel.add(dateLabel);
 
         JPanel reviewPanel = new JPanel();
         reviewPanel.add(reviewLabel);
@@ -90,10 +92,11 @@ public class ReviewPanel extends JFrame {
 
     }
 
+    // variables
     private JLabel nameLabel = new JLabel("Name: ");
     private JLabel ratingLabel = new JLabel("Rating: ");
     private JLabel reviewLabel = new JLabel("Review: ");
-    // private JLabel dateLabel;
+
     private JTextField nameInput = new JTextField(5);
     private JTextField ratingInput = new JTextField(1);
     private JTextField reviewInput = new JTextField(10);
@@ -114,6 +117,8 @@ class DisabledItemSelectionModel extends DefaultListSelectionModel {
     }
 }
 
+// creates each cell in the JList
+// looks cleaner and handles the conversion of review's toString()
 class MyListCellRenderer extends DefaultListCellRenderer {
     @Override
     public Component getListCellRendererComponent(

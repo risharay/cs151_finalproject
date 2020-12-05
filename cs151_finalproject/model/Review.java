@@ -1,16 +1,14 @@
-// import java.util.Date;  
+package cs151_finalproject.model;
 
 public class Review {
     // Variables
     int rating;
-    // Date date;
     String comment;
     String name;
 
     // Constructor
     public Review(int rating, String comment, String name){
 		this.rating = rating;
-		// this.date = date;
         this.comment = comment;
         this.name = name;
     }
@@ -19,10 +17,6 @@ public class Review {
     public int getRating() {
         return rating;
     }
-
-    // public Date getDate() {
-    //     return date;
-    // }
 
     public String getComment() {
         return comment;
@@ -36,10 +30,6 @@ public class Review {
     public void setRating(int rating) {
         this.rating = rating;
     }
-
-    // public void setDate(Date date) {
-    //     this.date = date;
-    // }
 
     public void setComment(String comment) {
         this.comment = comment;
