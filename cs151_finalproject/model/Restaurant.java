@@ -80,8 +80,7 @@ public class Restaurant implements Comparable<Restaurant>
     }
 
     // Reservation methods
-    public boolean makeAReservation(String partyName, int partySize, int reservationId) {
-        Reservation newReservation = new Reservation(reservationId, partySize, partyName);
+    public boolean makeReservation(Reservation newReservation) {
         reservations.add(newReservation);
         return true;
     }

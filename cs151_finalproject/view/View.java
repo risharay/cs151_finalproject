@@ -42,6 +42,7 @@ public class View {
                 this.queue.put(new RestaurantPanelMessage(true));   // <-- adding message to the queue
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                Thread.currentThread().interrupt(); // fixes the re-interrupt warning
             }
         });
 
@@ -50,6 +51,7 @@ public class View {
                 this.queue.put(new ReservationPanelMessage(true));  // <-- adding message to the queue
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                Thread.currentThread().interrupt(); // fixes the re-interrupt warning
             }
         });
 
@@ -58,6 +60,7 @@ public class View {
                 this.queue.put(new ReviewPanelMessage(true));       // <-- adding message to the queue
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                Thread.currentThread().interrupt(); // fixes the re-interrupt warning
             }
         });
 

@@ -118,6 +118,9 @@ public class ReservationPanel extends JFrame {
      * Main Method to see how it runs
      */
     public static void main(String args[]) {
-        ReservationPanel reservationFrame = new ReservationPanel();
+        Restaurant test = new Restaurant("Panda Express", "Chinese", 3);
+        test.makeReservation(new Reservation(1, 6, "Risha"));
+
+        ReservationPanel reservationFrame = new ReservationPanel(test);
     }
 }
