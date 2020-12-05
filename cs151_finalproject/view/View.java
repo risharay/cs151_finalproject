@@ -3,13 +3,12 @@ package cs151_finalproject.view;
 import javax.swing.*;
 
 import cs151_finalproject.controller.Message;
+import cs151_finalproject.controller.ReservationMadeMessage;
 
 import java.awt.*;
 import java.util.concurrent.BlockingQueue;
 
 public class View {
-    EXAMPLES - TO DO:
-    
     private JFrame gameFrame;
     private BlockingQueue<Message> queue;
 
@@ -32,15 +31,7 @@ public class View {
 
         newGame.addActionListener(event -> {
             try {
-                this.queue.put(new NewGameMessage()); // <--- adding NewGame message to the queue
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-
-        hitButton.addActionListener(event -> {
-            try {
-                this.queue.put(new HitMessage()); // <--- adding Hit message to the queue
+                this.queue.put(new ReservationMadeMessage(true)); // <--- adding NewGame message to the queue
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -1,5 +1,7 @@
 package cs151_finalproject.model;
 
+import java.util.ArrayList;
+
 public class Model {
     Reservation reservation;
     Restaurant restaurant;
@@ -43,8 +45,8 @@ public class Model {
         String cuisine;
         int location;
         double rating;
-        List<Review> reviews = new ArrayList<>();
-        List<Reservation> reservations = new ArrayList<>();
+        ArrayList<Review> reviews = new ArrayList<>();
+        ArrayList<Reservation> reservations = new ArrayList<>();
 
         public String getName() {
             return name;

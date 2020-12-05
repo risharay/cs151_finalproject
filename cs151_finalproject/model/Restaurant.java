@@ -88,8 +88,8 @@ public class Restaurant implements Comparable<Restaurant>
     public String toString() {
         return name + ", Cuisine = " + cuisine + ", " + location + " miles, " + rating + "/5";
     }
+    
 }
-
 
 class RestaurantCuisineComparator implements Comparator<Restaurant>
 {
@@ -115,3 +115,4 @@ class RestaurantLocationComparator implements Comparator<Restaurant>
         return r1.getLocation() - r2.getLocation();
     }
 }
+
