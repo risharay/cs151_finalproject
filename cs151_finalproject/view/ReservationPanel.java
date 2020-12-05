@@ -119,7 +119,6 @@ public class ReservationPanel extends JFrame {
      * Goes back to main page when user presses confirm button
      */
     private void goBack() {
-        // TO DO
     }
 
     /**
