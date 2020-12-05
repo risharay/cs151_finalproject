@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class IndividualRestaurantPanel extends JFrame {
-
     private JButton seeReviews;
     private JButton makeReservation;
     private JButton back;
@@ -21,11 +20,13 @@ public class IndividualRestaurantPanel extends JFrame {
     JFrame frame = new JFrame();
     JPanel buttons = new JPanel();
 
+    String arial = "Arial";
+
     public IndividualRestaurantPanel() {
 
-    	restaurantName.setFont(new Font("Arial", Font.BOLD, 25));
-    	restaurantLocation.setFont(new Font("Arial", Font.PLAIN, 15));
-    	restaurantRating.setFont(new Font("Arial", Font.PLAIN, 15));
+    	restaurantName.setFont(new Font(arial, Font.BOLD, 25));
+    	restaurantLocation.setFont(new Font(arial, Font.PLAIN, 15));
+    	restaurantRating.setFont(new Font(arial, Font.PLAIN, 15));
         restaurantInformationPanel.add(restaurantName);
         restaurantInformationPanel.add(restaurantLocation);
         restaurantInformationPanel.add(restaurantRating);
