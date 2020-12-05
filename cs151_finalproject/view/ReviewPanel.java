@@ -4,21 +4,25 @@ package cs151_finalproject.view;
 import javax.swing.*;
 
 import cs151_finalproject.model.Review;
+import cs151_finalproject.model.Restaurant;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.util.ArrayList;
 
+@SuppressWarnings("serial")
 public class ReviewPanel extends JFrame {
-    public static ArrayList<Review> reviews = new ArrayList<>();
+    static List<Review> reviews = new ArrayList<>();
 
     public void addActionListener(ActionListener a){
         submitButton.addActionListener(a);
     }
 
     // the frame itself
-    public ReviewPanel() {
+    public ReviewPanel(Restaurant restaurant) {
+        setReviews(restaurant.getReviews());
+        
         JFrame frame = new JFrame();
         frame.add(formPanel(), BorderLayout.NORTH);
         initializeReviewLabels();
@@ -28,10 +32,18 @@ public class ReviewPanel extends JFrame {
         Container contentPane = frame.getContentPane();
         contentPane.add(scrollPane, BorderLayout.CENTER);
 
+        frame.add(backButton, BorderLayout.SOUTH);
+
         frame.setPreferredSize(new Dimension(500, 500));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+    }
+
+    private static void setReviews(List<Review> rev) {
+        for(Review r : rev) {
+            reviews.add(r);
+        }
     }
 
     // sets up the JList of reviews and adds additional configurations
@@ -39,7 +51,7 @@ public class ReviewPanel extends JFrame {
     public void initializeReviewLabels() {
         // clears the list and reinitializes it due to error with the automatic refresh of JList
         model.clear();
-        reviewJList = new JList(model);
+        reviewJList = new JList<>(model);
         for (Review r : reviews) {
             model.addElement(r);
         }
@@ -82,12 +94,13 @@ public class ReviewPanel extends JFrame {
     }
 
     public static void main(String[] args) {
+        // String name, String cuisine, int location, double rating
+        Restaurant test = new Restaurant("Panda Express", "Chinese", 3, 3.5);
+        test.makeReview(new Review(5, "Perfect!", "John Doe"));
+        test.makeReview(new Review(4, "So-so food, but great people.", "Jane Doe"));
+        test.makeReview(new Review(1, "Abolutely horrible >:(", "Bad Reviewer"));
 
-        reviews.add(new Review(5, "Perfect!", "John Doe"));
-        reviews.add(new Review(4, "So-so food, but great people.", "Jane Doe"));
-        reviews.add(new Review(1, "Abolutely horrible >:(", "Bad Reviewer"));
-
-        ReviewPanel graph = new ReviewPanel();
+        ReviewPanel graph = new ReviewPanel(test);
         graph.setSize(500, 500);
 
     }
@@ -101,14 +114,16 @@ public class ReviewPanel extends JFrame {
     private JTextField ratingInput = new JTextField(1);
     private JTextField reviewInput = new JTextField(10);
     private JButton submitButton = new JButton("Submit");
+    private JButton backButton = new JButton("Back");
 
-    private DefaultListModel model =  new DefaultListModel();
-    private JList<Review> reviewJList = new JList(model);
+    private DefaultListModel<Review> model =  new DefaultListModel<>();
+    private JList<Review> reviewJList = new JList<>(model);
     JScrollPane scrollPane = new JScrollPane(reviewJList);
 
 }
 
 // disable default selection model in JList
+@SuppressWarnings("serial")
 class DisabledItemSelectionModel extends DefaultListSelectionModel {
 
     @Override
@@ -119,6 +134,7 @@ class DisabledItemSelectionModel extends DefaultListSelectionModel {
 
 // creates each cell in the JList
 // looks cleaner and handles the conversion of review's toString()
+@SuppressWarnings("serial")
 class MyListCellRenderer extends DefaultListCellRenderer {
     @Override
     public Component getListCellRendererComponent(

@@ -11,8 +11,8 @@ public class Restaurant implements Comparable<Restaurant>
     String cuisine;
     int location;
     double rating;
-    List<Review> reviews = new ArrayList<>();
-    List<Reservation> reservations = new ArrayList<>();
+    private List<Review> reviews = new ArrayList<>();
+    private List<Reservation> reservations = new ArrayList<>();
 
     // Constructor
     public Restaurant(String name, String cuisine, int location, double rating)
@@ -52,14 +52,21 @@ public class Restaurant implements Comparable<Restaurant>
         return rating;
     }
 
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
     public void setRating(double rating) {
         this.rating = rating;
     }
 
     // Review methods
-    public void makeReview(int rating, String comment, String name) {
-        Review newReview = new Review(rating, comment, name);
-        reviews.add(newReview);
+    public void makeReview(Review r) {
+        reviews.add(r);
     }
 
     public void calculateOverallRating() {
