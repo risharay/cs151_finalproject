@@ -79,6 +79,7 @@ public class Controller {
         return ValveResponse.REJECT;
       }
       // call view to change panel
+      // changeFrame(ReservationPanelMessage.getOldFrame(), ReviewPanel(ReservationPanelMessage.getCurr()));
       return ValveResponse.CONFIRM;
     }
   }

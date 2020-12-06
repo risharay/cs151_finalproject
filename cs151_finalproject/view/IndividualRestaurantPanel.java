@@ -58,6 +58,7 @@ public class IndividualRestaurantPanel extends JPanel {
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+        View.setJFrame(frame);
 
     }
     // private void seeReviews() {

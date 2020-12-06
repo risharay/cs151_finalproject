@@ -6,6 +6,7 @@ import cs151_finalproject.controller.Message;
 import cs151_finalproject.controller.ReservationMadeMessage;
 import cs151_finalproject.controller.ReviewMadeMessage;
 import cs151_finalproject.controller.SearchMadeMessage;
+import cs151_finalproject.model.Restaurant;
 import cs151_finalproject.controller.ReservationPanelMessage;
 import cs151_finalproject.controller.ReviewPanelMessage;
 import cs151_finalproject.controller.RestaurantPanelMessage;
@@ -14,6 +15,8 @@ import java.awt.*;
 import java.util.concurrent.BlockingQueue;
 
 public class View {
+    public static JFrame oldFrame;
+    public static Restaurant curr;
     private JFrame mainFrame;
     private BlockingQueue<Message> queue;
 
@@ -48,7 +51,7 @@ public class View {
 
         viewReservation.addActionListener(event -> {
             try {
-                this.queue.put(new ReservationPanelMessage(true));  // <-- adding message to the queue
+                this.queue.put(new ReservationPanelMessage(oldFrame, curr));  // <-- adding message to the queue
             } catch (InterruptedException e) {
                 e.printStackTrace();
                 Thread.currentThread().interrupt(); // fixes the re-interrupt warning
@@ -98,16 +101,16 @@ public class View {
          */
 
         // add everything and set layout and other standard JFrame settings
-        mainFrame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
-        mainFrame.setSize(500,500);
+        // mainFrame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
+        // mainFrame.setSize(500,500);
 
-        // would add buttons here but i forgot how we are like making a start page or ..?
-        //
-        //
+        // // would add buttons here but i forgot how we are like making a start page or ..?
+        // //
+        // //
 
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.pack();
-        mainFrame.setVisible(true);
+        // mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // mainFrame.pack();
+        // mainFrame.setVisible(true);
     }
 
     public void changeFrame(JFrame f1, JFrame f2)
@@ -116,13 +119,11 @@ public class View {
         f1.dispose();
     }
 
-    public void change() {
-        // TODO: do all the updates and repaint
-        //gameFrame.repaint();
-    }
+    public static void setJFrame(JFrame frame) {
+        oldFrame = frame;
+    } 
 
-    public void dispose() {
-        // TODO: clear all the resources
-        // for example, gameFrame.dispose();
+    public static void setCurr(Restaurant restaurant) {
+        curr = restaurant;
     }
 }
