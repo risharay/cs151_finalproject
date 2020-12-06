@@ -124,7 +124,6 @@ public class ReviewPanel extends JFrame {
     }
 
     // variables
-    private JLabel titleLabel;
     private JLabel nameLabel = new JLabel("Name: ");
     private JLabel ratingLabel = new JLabel("Rating: ");
     private JLabel reviewLabel = new JLabel("Review: ");
