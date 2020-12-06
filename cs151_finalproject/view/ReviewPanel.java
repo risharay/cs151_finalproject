@@ -17,16 +17,14 @@ import java.util.ArrayList;
 public class ReviewPanel extends JFrame {
     static List<Review> reviews = new ArrayList<>();
 
-    // public void addActionListener(ActionListener a){
-    //     submitButton.addActionListener(a);
-    // }
     /**
      * Updates based on user input
      */
-    public void update() {
+    public void update(Restaurant restaurant) {
         if(!nameInput.getText().isBlank() && !ratingInput.getText().isBlank() && !reviewInput.getText().isBlank()) {
             Review temp = new Review(Integer.parseInt(ratingInput.getText()), reviewInput.getText(), nameInput.getText());
             reviews.add(temp);
+            restaurant.makeReview(temp);
             initializeReviewLabels();
         } 
     }
@@ -54,7 +52,7 @@ public class ReviewPanel extends JFrame {
   
         frame.add(headerPanel, BorderLayout.NORTH);
  
-        frame.add(formPanel());
+        frame.add(formPanel(restaurant));
         initializeReviewLabels();
 
         // implement a scroll pane that appears when the list gets longer than allocated size
@@ -89,7 +87,6 @@ public class ReviewPanel extends JFrame {
         }
         reviewJList.setModel(model);
         reviewJList.setCellRenderer(new MyListCellRenderer());
-    
         reviewJList.setSelectionModel(new DisabledItemSelectionModel());
     }
 
@@ -98,7 +95,7 @@ public class ReviewPanel extends JFrame {
     * the submission panel for users to input:
     * @return formPanel panel which adds the components of review
     */
-    public JPanel formPanel() {    	
+    public JPanel formPanel(Restaurant restaurant) {    	
     	JPanel namePanel = new JPanel();
         namePanel.add(nameLabel);
         namePanel.add(nameInput);
@@ -112,10 +109,9 @@ public class ReviewPanel extends JFrame {
         reviewPanel.add(reviewInput);
 
 
-        submitButton.addActionListener(e -> update());
+        submitButton.addActionListener(e -> update(restaurant));
 
         JPanel formPanel = new JPanel();
-
         formPanel.add(namePanel);
         formPanel.add(detailPanel);
         formPanel.add(reviewPanel);

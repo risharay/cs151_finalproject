@@ -128,6 +128,7 @@ public class Controller {
     }
   }
 
+<<<<<<< HEAD
   /**
    * Individual Panel Valve
    */
@@ -139,6 +140,10 @@ public class Controller {
 	   */
 	  
 	 @Override
+=======
+  private class IndividualPanelValve implements Valve {
+    @Override
+>>>>>>> c0d7879c0897da209f2189888a289f2ff93a9a85
     public ValveResponse execute(Message message) {
       if (message.getClass() != IndividualPanelMessage.class) {
         return ValveResponse.REJECT;

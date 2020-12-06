@@ -4,7 +4,6 @@ package cs151_finalproject.model;
     */
 public class Reservation{
     // Variables
-    int reservationId;
     int partySize;
     String partyName;
 
@@ -18,6 +17,7 @@ public class Reservation{
         this.partyName = partyName;
     }
 
+<<<<<<< HEAD
     /**
     * Gets Reservation Id
     * @return int reservationId
@@ -39,6 +39,9 @@ public class Reservation{
     * Gets Party Size
     * @return int party size
     */
+=======
+    // Getters and setters
+>>>>>>> c0d7879c0897da209f2189888a289f2ff93a9a85
     public int getPartySize(){
 
         return partySize;
@@ -71,6 +74,6 @@ public class Reservation{
     
     @Override
     public String toString() {
-        return "<html>Party Name: " + this.partyName + "<br>Party Size: " + this.partySize + "<br>Number of Parties Waiting: " + this.reservationId + "</html>";
+        return "<html>Party Name: " + this.partyName + "<br>Party Size: " + this.partySize + "</html>";
     }
 }
