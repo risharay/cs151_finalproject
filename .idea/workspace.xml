@@ -6,7 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9128ea8-66f3-4552-bc77-9b591bdb3836" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs151_finalproject/view/IndividualRestaurantPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/cs151_finalproject/view/IndividualRestaurantPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs151_finalproject/view/ReservationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/cs151_finalproject/view/ReservationPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs151_finalproject/view/RestaurantPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/cs151_finalproject/view/RestaurantPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs151_finalproject/view/ReviewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/cs151_finalproject/view/ReviewPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cs151_finalproject/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/cs151_finalproject/view/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,9 +23,15 @@
     <option name="CLEAR_OUTPUT_DIRECTORY" value="false" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1lAe0x0y0nxWEDQqjngSZjJezSM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="abbreviatePackageNames" value="true" />
     <option name="autoscrollFromSource" value="true" />
@@ -31,6 +42,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -69,13 +81,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -100,6 +114,8 @@
       <list>
         <item itemvalue="Application.ReviewPanel" />
         <item itemvalue="Application.ReviewPanel" />
+        <item itemvalue="Application.ReviewPanel" />
+        <item itemvalue="Application.ReviewPanel" />
       </list>
     </recent_temporary>
   </component>
@@ -112,6 +128,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607150047471</updated>
       <workItem from="1607150053129" duration="58000" />
+      <workItem from="1607222979912" duration="7653000" />
     </task>
     <servers />
   </component>
@@ -119,13 +136,34 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="133" y="94" key="MergeDialog" timestamp="1607226780956">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="133" y="94" key="MergeDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607226780956" />
     <state x="296" y="0" width="1024" height="828" key="SettingsEditor" timestamp="1607128989422">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="296" y="0" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1607128989422" />
     <state x="296" y="23" width="1024" height="828" key="SettingsEditor/0.23.1440.828@0.23.1440.828" timestamp="1607044394964" />
+    <state x="726" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607226736470">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="726" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607226736470" />
+    <state x="688" y="241" key="git4idea.branch.GitSmartOperationDialog" timestamp="1607230832228">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="688" y="241" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607230832228" />
   </component>
 </project>

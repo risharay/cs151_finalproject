@@ -9,6 +9,9 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.ArrayList;
 
+import static cs151_finalproject.view.View.FRAME_HEIGHT;
+import static cs151_finalproject.view.View.FRAME_WIDTH;
+
 @SuppressWarnings("serial")
 public class ReviewPanel extends JFrame {
     static List<Review> reviews = new ArrayList<>();
@@ -31,7 +34,7 @@ public class ReviewPanel extends JFrame {
         contentPane.add(scrollPane, BorderLayout.CENTER);
 
         frame.add(backButton, BorderLayout.SOUTH);
-        frame.setPreferredSize(new Dimension(500, 500));
+        frame.setPreferredSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);

@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static cs151_finalproject.view.View.FRAME_HEIGHT;
+import static cs151_finalproject.view.View.FRAME_WIDTH;
+
 /**
  * Restaurant Panel where users can search for a restaurant or filter list of restaurants
  */
@@ -55,7 +58,7 @@ public class RestaurantPanel extends JFrame
         filter.addActionListener(filter -> updateList());
 
         frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
-        frame.setSize(500,500);
+        frame.setSize(FRAME_WIDTH,FRAME_HEIGHT);
         frame.add(panel1);
         frame.add(panel2);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

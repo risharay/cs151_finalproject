@@ -7,6 +7,9 @@ import javax.swing.border.EmptyBorder;
 
 import java.awt.*;
 
+import static cs151_finalproject.view.View.FRAME_HEIGHT;
+import static cs151_finalproject.view.View.FRAME_WIDTH;
+
 @SuppressWarnings("serial")
 public class IndividualRestaurantPanel extends JPanel {
     private JButton seeReviews;
@@ -52,7 +55,7 @@ public class IndividualRestaurantPanel extends JPanel {
         frame.add(restaurantInformationPanel);
         frame.add(buttons);
 
-        frame.setPreferredSize(new Dimension(500, 500));
+        frame.setPreferredSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT));
         frame.setLayout((LayoutManager) new FlowLayout(FlowLayout.LEFT));
         // frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         frame.pack();

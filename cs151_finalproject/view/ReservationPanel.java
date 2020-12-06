@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.ArrayList;
 import java.awt.*;
 
+import static cs151_finalproject.view.View.FRAME_HEIGHT;
+import static cs151_finalproject.view.View.FRAME_WIDTH;
+
 /**
  * Reservation Panel where users can make a reservation for the restaurant
  */
@@ -83,7 +86,7 @@ public class ReservationPanel extends JFrame {
         confirm.addActionListener(confirm -> updateValues());
 
         frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
-        frame.setSize(500, 500);
+        frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         frame.add(titleLabel);
         frame.add(partyNamePanel, JFrame.LEFT_ALIGNMENT);
         frame.add(partyNamePanelUpdated, JFrame.LEFT_ALIGNMENT);
