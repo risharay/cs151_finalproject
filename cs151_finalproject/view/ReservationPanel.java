@@ -27,13 +27,13 @@ public class ReservationPanel extends JFrame {
     private JTextField partyNameField = new JTextField(10);
     private JTextField partySizeField = new JTextField(10);
 
-    JFrame frame = new JFrame();
-    JPanel partyNamePanel = new JPanel();
-    JPanel partyNamePanelUpdated = new JPanel();
-    JPanel partySizePanel = new JPanel();
-    JPanel partySizePanelUpdated = new JPanel();
-    JPanel numberOfPartiesPanel = new JPanel();
-    JPanel numberOfPartiesPanelUpdated = new JPanel();
+    private JFrame frame = new JFrame();
+    private JPanel partyNamePanel = new JPanel();
+    private JPanel partyNamePanelUpdated = new JPanel();
+    private JPanel partySizePanel = new JPanel();
+    private JPanel partySizePanelUpdated = new JPanel();
+    private JPanel numberOfPartiesPanel = new JPanel();
+    private JPanel numberOfPartiesPanelUpdated = new JPanel();
 
     private JButton confirm;
     private JButton back;

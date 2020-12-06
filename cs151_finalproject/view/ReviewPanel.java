@@ -140,7 +140,6 @@ public class ReviewPanel extends JFrame {
 
 }
 
-
     /**
     * disable default selection model in JList
     */

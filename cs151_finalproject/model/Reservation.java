@@ -18,23 +18,6 @@ public class Reservation{
     }
 
     /**
-    * Gets Reservation Id
-    * @return int reservationId
-    */
-    public int getReservationId(){
-
-        return reservationId;
-    }
-
-    /**
-    * Sets Reservation Id
-    * @param reservationId the reservation Id
-    */
-    public void setReservationId(int reservationId){
-        this.reservationId = reservationId;
-    }
-
-    /**
     * Gets Party Size
     * @return int party size
     */

@@ -26,10 +26,6 @@ public class Model {
         restaurants.add(new Restaurant("Sodam", cuisine[4]));
         restaurants.add(new Restaurant("Bonchon", cuisine[4]));
         restaurants.add(new Restaurant("Mayflower", cuisine[1]));
-        
-//        System.out.println(restaurants.size());
-//        for(Restaurant r:restaurants)
-//        	System.out.println(r);
     }
 
     /**
