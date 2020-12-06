@@ -81,7 +81,8 @@ public class ReviewPanel extends JFrame {
     */
     public void initializeReviewLabels() {
         // clears the list and reinitializes it due to error with the automatic refresh of JList
-            reviewJList = new JList<>(model);
+        model.clear();
+        reviewJList = new JList<>(model);
         for (Review r : reviews) {
             model.addElement(r);
         }
