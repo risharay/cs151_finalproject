@@ -8,7 +8,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 @SuppressWarnings("serial")
-public class IndividualRestaurantPanel extends JPanel {
+public class IndividualRestaurantPanel extends JFrame {
     private JButton seeReviews;
     private JButton makeReservation;
     private JButton back;
@@ -22,6 +22,8 @@ public class IndividualRestaurantPanel extends JPanel {
     String arial = "Arial";
 
     public IndividualRestaurantPanel(Restaurant restaurant) {
+    	View.setCurr(restaurant);
+    	
         restaurantName = new JLabel(restaurant.getName());
         restaurantDistance = new JLabel(String.valueOf(restaurant.getDistance()) + " miles away");
         restaurantRating = new JLabel("Rating: " + restaurant.getRating());
@@ -38,15 +40,15 @@ public class IndividualRestaurantPanel extends JPanel {
         restaurantInformationPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         seeReviews = new JButton("See Reviews");
-        makeReservation = new JButton("Make Reservation");
-        back = new JButton("Back");
+        // makeReservation = new JButton("Make Reservation");
+        // back = new JButton("Back");
         // seeReviews.addActionListener(seeReviews -> seeReviews());
         // makeReservation.addActionListener(makeReservation -> makeReservation());
         // back.addActionListener(back -> back());
 
         buttons.add(seeReviews);
-        buttons.add(makeReservation);
-        buttons.add(back);
+        buttons.add(View.viewReservation);
+        // buttons.add(back);
         buttons.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         frame.add(restaurantInformationPanel);
@@ -61,18 +63,6 @@ public class IndividualRestaurantPanel extends JPanel {
         View.setJFrame(frame);
 
     }
-    // private void seeReviews() {
-
-
-    // }
-
-    // private void makeReservation() {
-
-    // }
-
-    // private void back() {
-
-    // }
 
     public static void main(String[] args) {
         new IndividualRestaurantPanel(new Restaurant("Panda Express", "Chinese"));

@@ -20,7 +20,7 @@ public class Yum {
         Controller controller = new Controller(view, model, queue);
 
         controller.mainLoop();
-        view.dispose();
+        // view.dispose();
         queue.clear();
     }
 }

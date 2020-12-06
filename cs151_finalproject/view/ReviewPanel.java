@@ -5,7 +5,7 @@ import cs151_finalproject.model.Restaurant;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -13,8 +13,16 @@ import java.util.ArrayList;
 public class ReviewPanel extends JFrame {
     static List<Review> reviews = new ArrayList<>();
 
-    public void addActionListener(ActionListener a){
-        submitButton.addActionListener(a);
+    // public void addActionListener(ActionListener a){
+    //     submitButton.addActionListener(a);
+    // }
+
+    public void update() {
+        if(!nameInput.getText().isBlank() && !ratingInput.getText().isBlank() && !reviewInput.getText().isBlank()) {
+            Review temp = new Review(Integer.parseInt(ratingInput.getText()), reviewInput.getText(), nameInput.getText());
+            reviews.add(temp);
+            initializeReviewLabels();
+        } 
     }
 
     // the frame itself
@@ -73,13 +81,7 @@ public class ReviewPanel extends JFrame {
         reviewPanel.add(reviewLabel);
         reviewPanel.add(reviewInput);
 
-        submitButton.addActionListener(e -> {
-            if(!nameInput.getText().isBlank() && !ratingInput.getText().isBlank() && !reviewInput.getText().isBlank()) {
-                Review temp = new Review(Integer.parseInt(ratingInput.getText()), reviewInput.getText(), nameInput.getText());
-                reviews.add(temp);
-                initializeReviewLabels();
-            } 
-        });
+        submitButton.addActionListener(e -> update());
 
         JPanel formPanel = new JPanel();
         formPanel.add(namePanel);
@@ -99,6 +101,7 @@ public class ReviewPanel extends JFrame {
     }
 
     // variables
+    private JLabel titleLabel;
     private JLabel nameLabel = new JLabel("Name: ");
     private JLabel ratingLabel = new JLabel("Rating: ");
     private JLabel reviewLabel = new JLabel("Review: ");

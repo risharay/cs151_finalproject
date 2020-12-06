@@ -1,14 +1,17 @@
 package cs151_finalproject.controller;
 
+import cs151_finalproject.model.Review;
+
 @SuppressWarnings("serial")
 public class ReviewMadeMessage implements Message {
-    private boolean confirm;
+    private transient Review confirm;
 
-    public ReviewMadeMessage(boolean bool) { 
-        confirm = bool;
+    public ReviewMadeMessage(String review) { 
+        confirm = review;
     }
 
-    public boolean getMsg() {
+    public Review getMsg() {
         return confirm;
     }
+
 }

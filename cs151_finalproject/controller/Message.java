@@ -7,6 +7,6 @@ import javax.swing.JFrame;
  * Represents message (event) sent from View to Model
  */
 public interface Message extends Serializable {
-    // public boolean getMsg();
+    // public Object getMsg();
 }
 
