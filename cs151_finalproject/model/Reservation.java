@@ -17,7 +17,6 @@ public class Reservation{
         this.partyName = partyName;
     }
 
-<<<<<<< HEAD
     /**
     * Gets Reservation Id
     * @return int reservationId
@@ -39,9 +38,6 @@ public class Reservation{
     * Gets Party Size
     * @return int party size
     */
-=======
-    // Getters and setters
->>>>>>> c0d7879c0897da209f2189888a289f2ff93a9a85
     public int getPartySize(){
 
         return partySize;
