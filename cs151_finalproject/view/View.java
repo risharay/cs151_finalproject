@@ -4,9 +4,6 @@ import javax.swing.*;
 
 import cs151_finalproject.controller.IndividualPanelMessage;
 import cs151_finalproject.controller.Message;
-import cs151_finalproject.controller.ReservationMadeMessage;
-import cs151_finalproject.controller.ReviewMadeMessage;
-import cs151_finalproject.controller.SearchMadeMessage;
 import cs151_finalproject.model.Model;
 import cs151_finalproject.model.Restaurant;
 import cs151_finalproject.controller.ReservationPanelMessage;
@@ -88,30 +85,6 @@ public class View {
                 Thread.currentThread().interrupt(); // fixes the re-interrupt warning
             }
         });
-        
-
-        reservationMade.addActionListener(event -> {
-            try {
-                this.queue.put(new ReservationMadeMessage(confirmString));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                Thread.currentThread().interrupt(); // fixes the re-interrupt warning
-            }
-        });
-
-        reviewMade.addActionListener(event -> {
-            try {
-                this.queue.put(new ReviewMadeMessage(confirmString));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                Thread.currentThread().interrupt(); // fixes the re-interrupt warning
-            }
-        });
-        
-
-        // mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // mainFrame.pack();
-        // mainFrame.setVisible(true);
         
     }
 
