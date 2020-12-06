@@ -34,6 +34,7 @@ public class RestaurantPanel extends JFrame
 
     /**
      * Design and functions for the Restaurant Panel
+     * @param mainModel the main model of the restaurant panel
      */
     public RestaurantPanel(Model mainModel)
     {        
@@ -115,7 +116,10 @@ public class RestaurantPanel extends JFrame
             }
         }
     }
-
+/**
+ * Adds the reservation to Reservation
+ * @param res reservation from the list of reservations
+ */
     private static void setRestaurants(List<Restaurant> res) {
         for(Restaurant r : res) {
             restaurants.add(r);

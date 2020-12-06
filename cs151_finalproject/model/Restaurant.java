@@ -3,6 +3,10 @@ package cs151_finalproject.model;
 import java.util.*;
 import java.security.SecureRandom;
 
+/**
+ * Restaurant Class
+ * implements Comparable
+ */
 public class Restaurant implements Comparable<Restaurant>
 {
     // Variables
@@ -13,7 +17,11 @@ public class Restaurant implements Comparable<Restaurant>
     private List<Review> reviews = new ArrayList<>();
     private List<Reservation> reservations = new ArrayList<>();
 
-    // Constructor
+    /**
+     * Constructor
+     * @param name
+     * @param cuisine
+     */
     public Restaurant(String name, String cuisine)
     {
         this.name = name;
@@ -24,53 +32,98 @@ public class Restaurant implements Comparable<Restaurant>
         reservationGenerator();
     }
 
-    // Getters and setters
+    /**
+     * Gets the name
+     * @return String the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets the name
+     * @param name 
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Gets the cuisine
+     * @return String the cuisine
+     */
     public String getCuisine() {
         return cuisine;
     }
 
+    /**
+     * Sets the cuisine
+     * @param cuisine
+     */
     public void setCuisine(String cuisine) {
         this.cuisine = cuisine;
     }
-
+    
+    /**
+     * Gets the distance
+     * @return double the distance
+     */
     public double getDistance() {
         return distance;
     }
-
+    
+    /**
+     * Sets the distance
+     * @param distance 
+     */
     public void setDistance(double distance) {
         this.distance = distance;
     }
 
+    /**
+     * Gets the rating
+     * @return String the rating
+     */
     public double getRating() {
         return rating;
     }
 
+    /**
+     * Gets the reviews
+     * @return List<Review> the list of reviews
+     */
     public List<Review> getReviews() {
         return reviews;
     }
-
+    
+    /**
+     * Gets the reservations
+     * @return List<Reservation> the list of reservations
+     */
     public List<Reservation> getReservations() {
         return reservations;
     }
 
+    /**
+     * Sets the rating
+     * @param rating
+     */
     public void setRating(double rating) {
         this.rating = rating;
     }
 
-    // Review methods
+    /**
+     * Makes the reviews
+     * @return r review
+     */
     public void makeReview(Review r) {
         reviews.add(r);
         calculateOverallRating();
     }
 
+    /**
+     * Calculates overall rating
+     */
     public void calculateOverallRating() {
         double totalRating = 0;
         double count = 0;
@@ -89,19 +142,34 @@ public class Restaurant implements Comparable<Restaurant>
 
         setRating(totalRating);
     }
-
+   
+    /**
+     * Makes the reservation
+     * @param newReservation
+     * @return boolean
+     */
     // Reservation methods
     public boolean makeReservation(Reservation newReservation) {
         newReservation.setReservationId(reservations.size() + 1);
         reservations.add(newReservation);
         return true;
     }
-
+    
+    /**
+     * Compares the restaurants
+     * @param other 
+     * @return int 
+     */
     @Override
     public int compareTo(Restaurant other) {
         return this.name.compareTo(other.name);
     }
 
+    /**
+     * Equals method
+     * @param obj 
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof Restaurant) {
@@ -111,11 +179,18 @@ public class Restaurant implements Comparable<Restaurant>
         return false;
     }
 
+    /**
+     * To String method
+     * @return String
+     */
     @Override
     public String toString() {
         return name + ", Cuisine: " + cuisine + ", " + distance + " miles away, " + rating + "/5";
     }
     
+    /**
+     * Reviews Generator
+     */
     // database generator
     private void reviewGenerator() {
         List<Review> fakeReviews = new ArrayList<>();
@@ -135,7 +210,9 @@ public class Restaurant implements Comparable<Restaurant>
             this.makeReview(fakeReviews.get(num));
         }
     }
-
+    /**
+     * Reservation Generator
+     */
     private void reservationGenerator() {
         List<Reservation> fakeReservations = new ArrayList<>();
 
@@ -155,6 +232,10 @@ public class Restaurant implements Comparable<Restaurant>
         }
     }
 
+    /**
+     * Random Location
+     * @return double 
+     */
     public static double randomLocation() {
         double scale = Math.pow(10, 2);
         double random = Math.random() * 15 + 1;

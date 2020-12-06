@@ -10,7 +10,9 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
 import java.util.ArrayList;
-
+    /**
+     * The frame of the ReviewPanel
+     */
 @SuppressWarnings("serial")
 public class ReviewPanel extends JFrame {
     static List<Review> reviews = new ArrayList<>();
@@ -18,7 +20,9 @@ public class ReviewPanel extends JFrame {
     // public void addActionListener(ActionListener a){
     //     submitButton.addActionListener(a);
     // }
-
+    /**
+     * Updates based on user input
+     */
     public void update() {
         if(!nameInput.getText().isBlank() && !ratingInput.getText().isBlank() && !reviewInput.getText().isBlank()) {
             Review temp = new Review(Integer.parseInt(ratingInput.getText()), reviewInput.getText(), nameInput.getText());
@@ -27,7 +31,10 @@ public class ReviewPanel extends JFrame {
         } 
     }
 
-    // the frame itself
+    /**
+     * The frame of the ReviewPanel
+     * @param restaurant Restaurant object
+     */
     public ReviewPanel(Restaurant restaurant) {
         View.setJFrame(this);
         setReviews(restaurant.getReviews());
@@ -61,15 +68,19 @@ public class ReviewPanel extends JFrame {
         frame.pack();
         frame.setVisible(true);
     }
-
+    /**
+    * Adds the review to Review
+    * @param rev reviews from the list of reviews
+    */
     private static void setReviews(List<Review> rev) {
         for(Review r : rev) {
             reviews.add(r);
         }
     }
-
-    // sets up the JList of reviews and adds additional configurations
-    // e.g. * disables selection (view only)
+    
+    /**
+    * sets up the JList of reviews and adds additional configurations
+    */
     public void initializeReviewLabels() {
         // clears the list and reinitializes it due to error with the automatic refresh of JList
             reviewJList = new JList<>(model);
@@ -81,9 +92,12 @@ public class ReviewPanel extends JFrame {
     
         reviewJList.setSelectionModel(new DisabledItemSelectionModel());
     }
+
     
-    // the submission panel for users to input:
-    // name, rating, and comment
+    /**
+    * the submission panel for users to input:
+    * @return formPanel panel which adds the components of review
+    */
     public JPanel formPanel() {    	
     	JPanel namePanel = new JPanel();
         namePanel.add(nameLabel);
@@ -127,7 +141,10 @@ public class ReviewPanel extends JFrame {
 
 }
 
-// disable default selection model in JList
+
+    /**
+    * disable default selection model in JList
+    */
 @SuppressWarnings("serial")
 class DisabledItemSelectionModel extends DefaultListSelectionModel {
 
@@ -137,8 +154,11 @@ class DisabledItemSelectionModel extends DefaultListSelectionModel {
     }
 }
 
-// creates each cell in the JList
-// looks cleaner and handles the conversion of review's toString()
+
+    /**
+    * Creates each cell in the JList and handles the conversion of review's toString()
+    * @return this the cell in the JList
+    */
 @SuppressWarnings("serial")
 class MyListCellRenderer extends DefaultListCellRenderer {
     @Override

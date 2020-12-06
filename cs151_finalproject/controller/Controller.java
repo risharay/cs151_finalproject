@@ -7,13 +7,21 @@ import cs151_finalproject.view.View;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
-
+/**
+ * Controller
+ */
 public class Controller {
   private BlockingQueue<Message> queue;
   private View view; // Direct reference to view
   private Model model; // Direct reference to model
   private List<Valve> valves = new LinkedList<Valve>();
 
+  /**
+   * Controller constructor
+   * @param view
+   * @param model
+   * @param queue
+   */
   public Controller(View view, Model model, BlockingQueue<Message> queue) {
     this.view = view;
     this.model = model;
@@ -29,6 +37,9 @@ public class Controller {
     new RestaurantPanel(model);
  }
 
+  /**
+   * Main Loop
+   */
  public void mainLoop() {
   ValveResponse response = ValveResponse.CONFIRM;
   Message message = null;
@@ -49,12 +60,24 @@ public class Controller {
     }
   }
 
+ /**
+  * Valve Interface
+  */
   private interface Valve {
     public ValveResponse execute(Message message);
   }
 
+  /**
+   * Review Panel Valve
+   */
   private class ReviewPanelValve implements Valve {
-    @Override
+    
+	  /**
+	   * Execute Valve Response
+	   * @param message
+	   * @return Valve Response
+	   */
+	@Override
     public ValveResponse execute(Message message) {
       if (message.getClass() != ReviewPanelMessage.class) {
         return ValveResponse.REJECT;
@@ -65,8 +88,17 @@ public class Controller {
     }
   }
 
+  /**
+   * Restaurant Panel Valve
+   */
   private class RestaurantPanelValve implements Valve {
-    @Override
+    
+	  /**
+	   * Execute Valve Response
+	   * @param message
+	   * @return Valve Response
+	   */
+	@Override
     public ValveResponse execute(Message message) {
       if (message.getClass() != RestaurantPanelMessage.class) {
         return ValveResponse.REJECT;
@@ -76,9 +108,17 @@ public class Controller {
       return ValveResponse.CONFIRM;
     }
   }
-
+  /**
+   * Reservation Panel Valve
+   */
   private class ReservationPanelValve implements Valve {
-    @Override
+	  /**
+	   * Execute Valve Response
+	   * @param message
+	   * @return Valve Response
+	   */
+	  
+	 @Override
     public ValveResponse execute(Message message) {
       if (message.getClass() != ReservationPanelMessage.class) {
         return ValveResponse.REJECT;
@@ -90,8 +130,17 @@ public class Controller {
     }
   }
 
+  /**
+   * Individual Panel Valve
+   */
   private class IndividualPanelValve implements Valve {
-    @Override
+	  /**
+	   * Execute Valve Response
+	   * @param message
+	   * @return Valve Response
+	   */
+	  
+	 @Override
     public ValveResponse execute(Message message) {
       if (message.getClass() != IndividualPanelMessage.class) {
         return ValveResponse.REJECT;
@@ -103,8 +152,17 @@ public class Controller {
     }
   }
 
+  /**
+   * Made Review Valve
+   */
   private class MadeReviewValve implements Valve {
-    @Override
+	  /**
+	   * Execute Valve Response
+	   * @param message
+	   * @return Valve Response
+	   */
+	  
+	 @Override
     public ValveResponse execute(Message message) {
       if (message.getClass() != ReviewMadeMessage.class) {
         return ValveResponse.REJECT;
@@ -113,9 +171,17 @@ public class Controller {
       return ValveResponse.CONFIRM;
     }
   }
-
+  /**
+   * Made Reservation Valve
+   */
   private class MadeReservationValve implements Valve {
-    @Override
+	  /**
+	   * Execute Valve Response
+	   * @param message
+	   * @return Valve Response
+	   */
+	  
+	 @Override
     public ValveResponse execute(Message message) {
       if (message.getClass() != ReservationMadeMessage.class) {
         return ValveResponse.REJECT;

@@ -7,6 +7,9 @@ import javax.swing.border.EmptyBorder;
 
 import java.awt.*;
 
+    /**
+    * Individual Restaurant Panel for each restaurant
+    */
 @SuppressWarnings("serial")
 public class IndividualRestaurantPanel extends JFrame {
     private JLabel restaurantName;
@@ -18,6 +21,10 @@ public class IndividualRestaurantPanel extends JFrame {
 
     String arial = "Arial";
 
+    /**
+    * The Individual Restaurant Panel for each restaurant
+    * @param restaurant the Restaurant Object
+    */
     public IndividualRestaurantPanel(Restaurant restaurant) {
         View.setJFrame(this);
     	View.setCurr(restaurant);
@@ -55,7 +62,9 @@ public class IndividualRestaurantPanel extends JFrame {
         View.setJFrame(frame);
 
     }
-
+    /**
+    * Main Method for testing it out
+    */
     public static void main(String[] args) {
         new IndividualRestaurantPanel(new Restaurant("Panda Express", "Chinese"));
     }

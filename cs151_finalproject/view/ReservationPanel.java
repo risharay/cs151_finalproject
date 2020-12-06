@@ -43,9 +43,7 @@ public class ReservationPanel extends JFrame {
 
     /**
      * Design and functions for the Reservation Panel
-     *
-     * @param partyName Party Name string
-     * @param partySize Party Size int
+     * @param restaurant Restaurant object
      */
     public ReservationPanel(Restaurant restaurant) {
         View.setJFrame(this);
@@ -139,6 +137,10 @@ public class ReservationPanel extends JFrame {
        // }
     }
 
+    /**
+     * adds the reservation to Reservation
+     * @res reservation from the list of reservations
+     */
     private static void setReservations(List<Reservation> res) {
         for(Reservation r : res) {
             reservations.add(r);

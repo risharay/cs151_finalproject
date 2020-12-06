@@ -2,6 +2,9 @@ package cs151_finalproject.model;
 
 import java.util.*;
 
+/**
+ * Model
+ */
 public class Model {
     static List<Restaurant> restaurants = new ArrayList<>();
     String[] cuisine = {"Japanese", "Chinese", "Mexican", "Fast Food", "Korean"};
@@ -29,6 +32,10 @@ public class Model {
 //        	System.out.println(r);
     }
 
+    /**
+     * Gets restaurants
+     * @return List<Restaurant> 
+     */
     public static List<Restaurant> getRestaurants() {
         return restaurants;
     }

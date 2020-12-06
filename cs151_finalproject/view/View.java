@@ -16,6 +16,9 @@ import cs151_finalproject.controller.RestaurantPanelMessage;
 import java.awt.*;
 import java.util.concurrent.BlockingQueue;
 
+    /**
+    * View Class
+    */
 public class View {
     public static JFrame oldFrame;
     public static Restaurant curr;
@@ -31,12 +34,21 @@ public class View {
     JButton reservationMade = new JButton();
     JButton reviewMade = new JButton();
 
+    /**
+    * Creates object of type view
+    * @param queue BlockingQueue of type Message
+    * @return queue 
+    */
     public static View init(BlockingQueue<Message> queue)
     {
         // Create object of type view
         return new View(queue);
     }
 
+    /**
+    * ActionListeners for each view
+    * @param queue BlockingQueue of type Message
+    */
     private View(BlockingQueue<Message> queue)
     {
         this.queue = queue;
@@ -78,11 +90,6 @@ public class View {
         });
         
 
-        // /*
-        // * commented out because not sure if these should be here or in the panels themselves?
-        // * since the actual buttons should be in their respective panels unless im trippin' lol
-        // *
-
         reservationMade.addActionListener(event -> {
             try {
                 this.queue.put(new ReservationMadeMessage(confirmString));
@@ -102,52 +109,74 @@ public class View {
         });
         
 
-        // add everything and set layout and other standard JFrame settings
-        // mainFrame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
-        // mainFrame.setSize(500,500);
-
-        // // would add buttons here but i forgot how we are like making a start page or ..?
-        // //
-        // //
-
         // mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // mainFrame.pack();
         // mainFrame.setVisible(true);
         
     }
 
+   
+    /**
+    * Changes frame to frame
+    * @param f1 first JFrame
+    * @param f2 second JFrame
+    */
     public static void changeFrame(JFrame f1, JFrame f2)
     {
         f2.setVisible(true);
         f1.dispose();
         System.out.println("Changed Frame real");
     }
-
+    /**
+    * Sets JFrame
+    * @param frame jframe
+    */
     public static void setJFrame(JFrame frame) {
         oldFrame = frame;
         System.out.println("Changed Frame old");
     } 
 
+    /**
+    * Sets current
+    * @param restaurant restaurant object
+    */
     public static void setCurr(Restaurant restaurant) {
         curr = restaurant;
     }
 
+    /**
+    * Sets Confirm Message
+    * @param string confirmation string
+    */
     public static void setConfirmMessage(String string) {
         confirmString = string;
     }
 
+    /**
+    * Make Review Panel
+    * @param restaurant restaurant object
+    */
     public static JFrame makeReviewPanel(Restaurant restaurant) {
         return new ReviewPanel(restaurant);
     }
-
+    /**
+    * Make Reservation Panel
+    * @param restaurant restaurant object
+    */
     public static JFrame makeReservationPanel(Restaurant restaurant) {
         return new ReservationPanel(restaurant);
     }
-
+    /**
+    * Make Restaurant Panel
+    * @param model model object
+    */
     public static JFrame makeRestaurantPanel(Model model) {
         return new RestaurantPanel(model);
     }
-
+    /**
+    * Make Individual Panel
+    * @param restaurant restaurant object
+    */
     public static JFrame makeIndivPanel(Restaurant restaurant) {
         return new IndividualRestaurantPanel(restaurant);
     }
