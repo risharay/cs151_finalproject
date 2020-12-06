@@ -5,9 +5,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9128ea8-66f3-4552-bc77-9b591bdb3836" name="Default Changelist" comment="">
+    <list default="true" id="a9128ea8-66f3-4552-bc77-9b591bdb3836" name="Default Changelist" comment="added unit tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs151_finalproject/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/cs151_finalproject/view/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,10 +16,23 @@
   <component name="CompilerWorkspaceConfiguration">
     <option name="CLEAR_OUTPUT_DIRECTORY" value="false" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1lAe0x0y0nxWEDQqjngSZjJezSM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="abbreviatePackageNames" value="true" />
     <option name="autoscrollFromSource" value="true" />
@@ -30,7 +42,12 @@
     <option name="sortByType" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -39,7 +56,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.All in finalproject">
     <configuration default="true" type="TestNG">
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -69,13 +86,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in finalproject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="finalproject" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -98,6 +126,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in finalproject" />
         <item itemvalue="Application.ReviewPanel" />
         <item itemvalue="Application.ReviewPanel" />
       </list>
@@ -112,14 +141,36 @@
       <option name="presentableId" value="Default" />
       <updated>1607150047471</updated>
       <workItem from="1607150053129" duration="58000" />
+      <workItem from="1607236751822" duration="3338000" />
     </task>
+    <task id="LOCAL-00001" summary="added unit tests">
+      <created>1607239735202</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607239735202</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="added unit tests" />
   </component>
   <component name="WindowStateProjectService">
     <state x="296" y="0" width="1024" height="828" key="SettingsEditor" timestamp="1607128989422">
@@ -127,5 +178,13 @@
     </state>
     <state x="296" y="0" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1607128989422" />
     <state x="296" y="23" width="1024" height="828" key="SettingsEditor/0.23.1440.828@0.23.1440.828" timestamp="1607044394964" />
+    <state x="2357" y="223" key="Vcs.Push.Dialog.v2" timestamp="1607239740714">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2357" y="223" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607239740714" />
+    <state x="2469" y="395" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1607237847163">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2469" y="395" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607237847163" />
   </component>
 </project>
