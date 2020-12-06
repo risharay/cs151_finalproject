@@ -1,5 +1,6 @@
 package cs151_finalproject.view;
 
+import cs151_finalproject.model.Model;
 import cs151_finalproject.model.Reservation;
 import cs151_finalproject.model.Restaurant;
 
@@ -15,6 +16,7 @@ import java.awt.*;
  */
 @SuppressWarnings("serial")
 public class ReservationPanel extends JFrame {
+	private JLabel restaurantName = new JLabel();
     private JLabel titleLabel = new JLabel("Make a Reservation");
     private JLabel partyNameLabel = new JLabel("Party Name: ");
     private JLabel partyNameLabelUpdated = new JLabel();
@@ -47,8 +49,11 @@ public class ReservationPanel extends JFrame {
      */
     public ReservationPanel(Restaurant restaurant) {
         setReservations(restaurant.getReservations());
-
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 30));
+        
+        restaurantName.setText(restaurant.getName());
+        restaurantName.setFont(new Font("Arial", Font.BOLD, 30));
+        
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
         titleLabel.setBorder(new EmptyBorder(10,0,10,0));
 
         partyNamePanel.add(partyNameLabel);
@@ -84,6 +89,7 @@ public class ReservationPanel extends JFrame {
 
         frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         frame.setSize(500, 500);
+        frame.add(restaurantName);
         frame.add(titleLabel);
         frame.add(partyNamePanel, JFrame.LEFT_ALIGNMENT);
         frame.add(partyNamePanelUpdated, JFrame.LEFT_ALIGNMENT);
@@ -102,10 +108,10 @@ public class ReservationPanel extends JFrame {
      * Reservation List update process when user presses confirm button
      */
     private void updateValues() {
-        reservationId++;
+    	reservationId++;
         int size = Integer.parseInt(partySizeField.getText());
         String name = partyNameField.getText();
-
+        
         
         reservations.add(new Reservation(size, name));
         JOptionPane.showMessageDialog(null,reservations.get(reservations.size()-1));
