@@ -98,7 +98,6 @@ public class View {
     {
         f2.setVisible(true);
         f1.dispose();
-        System.out.println("Changed Frame real");
     }
     /**
     * Sets JFrame
@@ -106,7 +105,6 @@ public class View {
     */
     public static void setJFrame(JFrame frame) {
         oldFrame = frame;
-        System.out.println("Changed Frame old");
     } 
 
     /**

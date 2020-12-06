@@ -78,7 +78,10 @@ public class RestaurantPanel extends JFrame
     private void updateList()
     {
         this.model.removeAllElements();
-
+        
+        /**
+         * NOTE: SEARCH MUST BE EXACT
+         */
         if(!searchBar.getText().isBlank())
         {
             String restaurantName = searchBar.getText();
