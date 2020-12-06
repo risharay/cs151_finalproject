@@ -4,6 +4,8 @@ import cs151_finalproject.model.Review;
 import cs151_finalproject.model.Restaurant;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -21,17 +23,33 @@ public class ReviewPanel extends JFrame {
     public ReviewPanel(Restaurant restaurant) {
         setReviews(restaurant.getReviews());
         
+        restaurantName.setText(restaurant.getName());
+        restaurantName.setFont(new Font("Arial", Font.BOLD, 20));
+        
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 15));
+        //titleLabel.setBorder(new EmptyBorder(10,0,10,0));
+        
+    	JPanel headerPanel = new JPanel();
+    	headerPanel.add(restaurantName);
+    	headerPanel.add(titleLabel);
+    	
+    	
         JFrame frame = new JFrame();
-        frame.add(formPanel(), BorderLayout.NORTH);
+  
+        frame.add(headerPanel, BorderLayout.NORTH);
+ 
+        frame.add(formPanel(), BorderLayout.CENTER);
         initializeReviewLabels();
 
         // implement a scroll pane that appears when the list gets longer than allocated size
         scrollPane = new JScrollPane(reviewJList);
-        Container contentPane = frame.getContentPane();
-        contentPane.add(scrollPane, BorderLayout.CENTER);
-
+        Container contentPane = frame.getContentPane();    
+        //contentPane.setPreferredSize(new Dimension(50,50));
+        contentPane.add(scrollPane, BorderLayout.WEST);
+   
         frame.add(backButton, BorderLayout.SOUTH);
         frame.setPreferredSize(new Dimension(500, 500));
+        //frame.getContentPane().setPreferredSize(new Dimension(50, 50));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
@@ -61,7 +79,12 @@ public class ReviewPanel extends JFrame {
     // the submission panel for users to input:
     // name, rating, and comment
     public JPanel formPanel() {
-        JPanel namePanel = new JPanel();
+    	
+//    	JPanel headerPanel = new JPanel();
+//    	headerPanel.add(restaurantName);
+//    	headerPanel.add(titleLabel);
+    	
+    	JPanel namePanel = new JPanel();
         namePanel.add(nameLabel);
         namePanel.add(nameInput);
 
@@ -73,6 +96,7 @@ public class ReviewPanel extends JFrame {
         reviewPanel.add(reviewLabel);
         reviewPanel.add(reviewInput);
 
+        
         submitButton.addActionListener(e -> {
             if(!nameInput.getText().isBlank() && !ratingInput.getText().isBlank() && !reviewInput.getText().isBlank()) {
                 Review temp = new Review(Integer.parseInt(ratingInput.getText()), reviewInput.getText(), nameInput.getText());
@@ -82,11 +106,12 @@ public class ReviewPanel extends JFrame {
         });
 
         JPanel formPanel = new JPanel();
+        //formPanel.add(headerPanel);
         formPanel.add(namePanel);
         formPanel.add(detailPanel);
         formPanel.add(reviewPanel);
         formPanel.add(submitButton);
-
+        
         return formPanel;
     }
 
@@ -102,7 +127,8 @@ public class ReviewPanel extends JFrame {
     private JLabel nameLabel = new JLabel("Name: ");
     private JLabel ratingLabel = new JLabel("Rating: ");
     private JLabel reviewLabel = new JLabel("Review: ");
-
+    private JLabel restaurantName = new JLabel();
+    private JLabel titleLabel = new JLabel("Make A Review: ");
     private JTextField nameInput = new JTextField(5);
     private JTextField ratingInput = new JTextField(1);
     private JTextField reviewInput = new JTextField(10);
