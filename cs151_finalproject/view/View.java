@@ -17,8 +17,17 @@ import java.util.concurrent.BlockingQueue;
 public class View {
     public static JFrame oldFrame;
     public static Restaurant curr;
+    public static String confirmString;
+
     private JFrame mainFrame;
     private BlockingQueue<Message> queue;
+
+    public static JButton viewRestaurant = new JButton("Back");
+    public static JButton viewReservation = new JButton("Make a Reservation");
+    public static JButton viewReview = new JButton("See Reviews");
+    JButton searchMade = new JButton();
+    JButton reservationMade = new JButton();
+    JButton reviewMade = new JButton();
 
     public static View init(BlockingQueue<Message> queue)
     {
@@ -36,13 +45,9 @@ public class View {
         // or you can make View a subclass of JFrame by extending it
         mainFrame = new JFrame();
 
-        JButton viewRestaurant = new JButton();
-        JButton viewReservation = new JButton();
-        JButton viewReview = new JButton();
-
         viewRestaurant.addActionListener(event -> {
             try {
-                this.queue.put(new RestaurantPanelMessage(true));   // <-- adding message to the queue
+                this.queue.put(new RestaurantPanelMessage(oldFrame, curr));   // <-- adding message to the queue
             } catch (InterruptedException e) {
                 e.printStackTrace();
                 Thread.currentThread().interrupt(); // fixes the re-interrupt warning
@@ -60,45 +65,47 @@ public class View {
 
         viewReview.addActionListener(event -> {
             try {
-                this.queue.put(new ReviewPanelMessage(true));       // <-- adding message to the queue
+                this.queue.put(new ReviewPanelMessage(oldFrame, curr));       // <-- adding message to the queue
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                Thread.currentThread().interrupt(); // fixes the re-interrupt warning
+            }
+        });
+        
+
+        // /*
+        // * commented out because not sure if these should be here or in the panels themselves?
+        // * since the actual buttons should be in their respective panels unless im trippin' lol
+        // *
+
+        searchMade.addActionListener(event -> {
+            try {
+                this.queue.put(new SearchMadeMessage(confirmString));
             } catch (InterruptedException e) {
                 e.printStackTrace();
                 Thread.currentThread().interrupt(); // fixes the re-interrupt warning
             }
         });
 
-        /*
-        * commented out because not sure if these should be here or in the panels themselves?
-        * since the actual buttons should be in their respective panels unless im trippin' lol
-        *
-        JButton searchMade = new JButton();
-        JButton reservationMade = new JButton();
-        JButton reviewMade = new JButton();
-
-        searchMade.addActionListener(event -> {
-            try {
-                this.queue.put(new SearchMadeMessage());
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-
         reservationMade.addActionListener(event -> {
             try {
-                this.queue.put(new ReservationMadeMessage());
+                this.queue.put(new ReservationMadeMessage(confirmString));
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                Thread.currentThread().interrupt(); // fixes the re-interrupt warning
             }
         });
 
         reviewMade.addActionListener(event -> {
             try {
-                this.queue.put(new ReviewMadeMessage());
+                ReviewPanel.update();
+                this.queue.put(new ReviewMadeMessage(confirmString));
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                Thread.currentThread().interrupt(); // fixes the re-interrupt warning
             }
         });
-         */
+        
 
         // add everything and set layout and other standard JFrame settings
         // mainFrame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
@@ -111,10 +118,16 @@ public class View {
         // mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // mainFrame.pack();
         // mainFrame.setVisible(true);
+
+        new IndividualRestaurantPanel(new Restaurant("Panda Express", "Chinese"));
     }
 
-    public void changeFrame(JFrame f1, JFrame f2)
+    public static void changeFrame(JFrame f1, JFrame f2)
     {
+    	System.out.println(f1.getLocation());
+    	System.out.println(f2.getLocation());
+    	f2.setLocation(f1.getLocation());
+    	System.out.println(f2.getLocation());
         f2.setVisible(true);
         f1.dispose();
     }
@@ -125,5 +138,25 @@ public class View {
 
     public static void setCurr(Restaurant restaurant) {
         curr = restaurant;
+    }
+
+    public static void setConfirmMessage(String string) {
+        confirmString = string;
+    }
+
+    public static JFrame makeReviewPanel(Restaurant restaurant) {
+        return new ReviewPanel(restaurant);
+    }
+
+    public static JFrame makeReservationPanel(Restaurant restaurant) {
+        return new ReservationPanel(restaurant);
+    }
+
+    public static JFrame makeRestaurantPanel() {
+        return new RestaurantPanel();
+    }
+
+    public static JFrame makeIndivPanel(Restaurant restaurant) {
+        return new IndividualRestaurantPanel(restaurant);
     }
 }

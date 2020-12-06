@@ -65,7 +65,7 @@ public class ReservationPanel extends JFrame {
         partySizePanelUpdated.add(partySizeLabelUpdated);
 
         numberOfPartiesPanel.add(numberOfPartiesLabel);
-        numberOfPartiesLabel.setText("Number of Parties Ahead: " + String.valueOf(reservationId));
+        numberOfPartiesLabel.setText("Number of Parties Ahead: " + String.valueOf(restaurant.getReservations().size()));
         
 //        JPanel inputs = new JPanel();
 //        inputs.add(partyNamePanel);

@@ -56,7 +56,8 @@ public class Controller {
       if (message.getClass() != ReviewPanelMessage.class) {
         return ValveResponse.REJECT;
       }
-      // call view to change panel
+      ReviewPanelMessage input = (ReviewPanelMessage)message;
+      View.changeFrame(input.getOldFrame(), View.makeReviewPanel(input.getCurr()));
       return ValveResponse.CONFIRM;
     }
   }
@@ -67,7 +68,8 @@ public class Controller {
       if (message.getClass() != RestaurantPanelMessage.class) {
         return ValveResponse.REJECT;
       }
-      // call view to change panel
+      RestaurantPanelMessage input = (RestaurantPanelMessage)message;
+      View.changeFrame(input.getOldFrame(), View.makeRestaurantPanel());
       return ValveResponse.CONFIRM;
     }
   }
@@ -78,8 +80,9 @@ public class Controller {
       if (message.getClass() != ReservationPanelMessage.class) {
         return ValveResponse.REJECT;
       }
-      // call view to change panel
-      // changeFrame(ReservationPanelMessage.getOldFrame(), ReviewPanel(ReservationPanelMessage.getCurr()));
+
+      ReservationPanelMessage input = (ReservationPanelMessage)message;
+      View.changeFrame(input.getOldFrame(), View.makeReservationPanel(input.getCurr()));
       return ValveResponse.CONFIRM;
     }
   }

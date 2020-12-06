@@ -7,7 +7,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import java.awt.*;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class ReviewPanel extends JFrame {
     static List<Review> reviews = new ArrayList<>();
 
-     // public void addActionListener(ActionListener a){
+    // public void addActionListener(ActionListener a){
     //     submitButton.addActionListener(a);
     // }
 
@@ -102,8 +102,8 @@ public class ReviewPanel extends JFrame {
         reviewPanel.add(reviewLabel);
         reviewPanel.add(reviewInput);
 
-        
-         submitButton.addActionListener(e -> update());
+
+        submitButton.addActionListener(e -> update());
 
         JPanel formPanel = new JPanel();
         //formPanel.add(headerPanel);
@@ -124,6 +124,7 @@ public class ReviewPanel extends JFrame {
     }
 
     // variables
+    private JLabel titleLabel;
     private JLabel nameLabel = new JLabel("Name: ");
     private JLabel ratingLabel = new JLabel("Rating: ");
     private JLabel reviewLabel = new JLabel("Review: ");

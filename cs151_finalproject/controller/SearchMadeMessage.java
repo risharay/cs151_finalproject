@@ -2,13 +2,14 @@ package cs151_finalproject.controller;
 
 @SuppressWarnings("serial")
 public class SearchMadeMessage implements Message {
-    private boolean confirm;
+    private transient String input;
 
-    public SearchMadeMessage(boolean bool) { 
-        confirm = bool;
+    public SearchMadeMessage(String string) { 
+        input = string;
     }
 
-    public boolean getMsg() {
-        return confirm;
+    public String getMsg() {
+        return input;
     }
+
 }
