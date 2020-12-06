@@ -32,13 +32,10 @@ public class Model {
 //        	System.out.println(r);
     }
 
-<<<<<<< HEAD
     /**
      * Gets restaurants
      * @return List<Restaurant> 
      */
-=======
->>>>>>> c0d7879c0897da209f2189888a289f2ff93a9a85
     public static List<Restaurant> getRestaurants() {
         return restaurants;
     }

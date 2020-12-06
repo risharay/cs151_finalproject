@@ -26,7 +26,9 @@ public class ReviewPanel extends JFrame {
             reviews.add(temp);
             restaurant.makeReview(temp);
             initializeReviewLabels();
-        } 
+        } else {
+            JOptionPane.showMessageDialog(null,"Review parameters incomplete");
+        }
     }
 
     /**

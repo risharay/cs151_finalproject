@@ -27,7 +27,6 @@ public class ReservationPanel extends JFrame {
     private JTextField partyNameField = new JTextField(10);
     private JTextField partySizeField = new JTextField(10);
 
-    int reservationId;
     JFrame frame = new JFrame();
     JPanel partyNamePanel = new JPanel();
     JPanel partyNamePanelUpdated = new JPanel();
@@ -97,15 +96,17 @@ public class ReservationPanel extends JFrame {
      * Reservation List update process when user presses confirm button
      */
     private void updateValues() {
-    	reservationId++;
-        int size = Integer.parseInt(partySizeField.getText());
-        String name = partyNameField.getText();
-        
-        
-        reservations.add(new Reservation(size, name));
-        numberOfPartiesLabel.setText("Number of Parties Ahead: " + reservations.size()); 
-        JOptionPane.showMessageDialog(null,"Reservation Made\n" + reservations.get(reservations.size()-1));
-       
+        if(!partyNameField.getText().isBlank() && !partySizeField.getText().isBlank()) {
+            int size = Integer.parseInt(partySizeField.getText());
+            String name = partyNameField.getText();
+            
+            
+            reservations.add(new Reservation(size, name));
+            numberOfPartiesLabel.setText("Number of Parties Ahead: " + reservations.size()); 
+            JOptionPane.showMessageDialog(null,"Reservation Made\n" + reservations.get(reservations.size()-1));
+        } else {
+            JOptionPane.showMessageDialog(null,"Reservation parameters incomplete");
+        }
     }
 
     /**
@@ -116,12 +117,5 @@ public class ReservationPanel extends JFrame {
         for(Reservation r : res) {
             reservations.add(r);
         }
-    }
-
-    /**
-     * Main Method to see how it runs
-     */
-    public static void main(String args[]) {
-        new ReservationPanel(new Restaurant("Panda Express", "Chinese"));
     }
 }
