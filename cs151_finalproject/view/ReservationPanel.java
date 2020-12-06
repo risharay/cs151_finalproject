@@ -48,6 +48,7 @@ public class ReservationPanel extends JFrame {
      * @param partySize Party Size int
      */
     public ReservationPanel(Restaurant restaurant) {
+        View.setJFrame(this);
         setReservations(restaurant.getReservations());
         
         restaurantName.setText(restaurant.getName());
@@ -83,7 +84,7 @@ public class ReservationPanel extends JFrame {
         
         JPanel buttons = new JPanel();
         buttons.add(confirm);
-        buttons.add(back);
+        buttons.add(View.viewIndividual);
 
         confirm.addActionListener(confirm -> updateValues());
 

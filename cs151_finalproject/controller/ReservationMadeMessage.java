@@ -1,16 +1,14 @@
 package cs151_finalproject.controller;
 
-import cs151_finalproject.model.Reservation;
-
 @SuppressWarnings("serial")
 public class ReservationMadeMessage implements Message {
-    private transient Reservation confirm;
+    private transient String confirm;
 
     public ReservationMadeMessage(String reservation) { 
         confirm = reservation;
     }
 
-    public Reservation getMsg() {
+    public String getMsg() {
         return confirm;
     }
 }

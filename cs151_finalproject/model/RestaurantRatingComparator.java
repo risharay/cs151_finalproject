@@ -6,6 +6,6 @@ public class RestaurantRatingComparator implements Comparator<Restaurant>
 {
     public int compare(Restaurant r1, Restaurant r2)
     {
-        return (int) -(r1.getRating() - r2.getRating());
+        return -(Double.compare(r1.getRating(), r2.getRating()));
     }
 }

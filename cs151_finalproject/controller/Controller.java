@@ -1,6 +1,7 @@
 package cs151_finalproject.controller;
 
 import cs151_finalproject.model.Model;
+import cs151_finalproject.view.RestaurantPanel;
 import cs151_finalproject.view.View;
 
 import java.util.LinkedList;
@@ -21,9 +22,11 @@ public class Controller {
     valves.add(new ReviewPanelValve());
     valves.add(new RestaurantPanelValve());
     valves.add(new ReservationPanelValve());
+    valves.add(new IndividualPanelValve());
     valves.add(new MadeReviewValve());
     valves.add(new MadeReservationValve());
-    valves.add(new MadeSearchValve());
+    
+    new RestaurantPanel(model);
  }
 
  public void mainLoop() {
@@ -69,7 +72,7 @@ public class Controller {
         return ValveResponse.REJECT;
       }
       RestaurantPanelMessage input = (RestaurantPanelMessage)message;
-      View.changeFrame(input.getOldFrame(), View.makeRestaurantPanel());
+      View.changeFrame(input.getOldFrame(), View.makeRestaurantPanel(model));
       return ValveResponse.CONFIRM;
     }
   }
@@ -86,7 +89,20 @@ public class Controller {
       return ValveResponse.CONFIRM;
     }
   }
-  
+
+  private class IndividualPanelValve implements Valve {
+    @Override
+    public ValveResponse execute(Message message) {
+      if (message.getClass() != IndividualPanelMessage.class) {
+        return ValveResponse.REJECT;
+      }
+
+      IndividualPanelMessage input = (IndividualPanelMessage)message;
+      View.changeFrame(input.getOldFrame(), View.makeIndivPanel(input.getCurr()));
+      return ValveResponse.CONFIRM;
+    }
+  }
+
   private class MadeReviewValve implements Valve {
     @Override
     public ValveResponse execute(Message message) {
@@ -105,17 +121,6 @@ public class Controller {
         return ValveResponse.REJECT;
       }
       // create reservation
-      return ValveResponse.CONFIRM;
-    }
-  }
-
-  private class MadeSearchValve implements Valve {
-    @Override
-    public ValveResponse execute(Message message) {
-      if (message.getClass() != SearchMadeMessage.class) {
-        return ValveResponse.REJECT;
-      }
-      // call search
       return ValveResponse.CONFIRM;
     }
   }
