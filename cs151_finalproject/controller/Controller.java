@@ -31,8 +31,6 @@ public class Controller {
     valves.add(new RestaurantPanelValve());
     valves.add(new ReservationPanelValve());
     valves.add(new IndividualPanelValve());
-    valves.add(new MadeReviewValve());
-    valves.add(new MadeReservationValve());
     
     new RestaurantPanel(model);
  }
@@ -130,6 +128,7 @@ public class Controller {
     }
   }
 
+<<<<<<< HEAD
   /**
    * Individual Panel Valve
    */
@@ -141,6 +140,10 @@ public class Controller {
 	   */
 	  
 	 @Override
+=======
+  private class IndividualPanelValve implements Valve {
+    @Override
+>>>>>>> c0d7879c0897da209f2189888a289f2ff93a9a85
     public ValveResponse execute(Message message) {
       if (message.getClass() != IndividualPanelMessage.class) {
         return ValveResponse.REJECT;
@@ -148,45 +151,6 @@ public class Controller {
 
       IndividualPanelMessage input = (IndividualPanelMessage)message;
       View.changeFrame(input.getOldFrame(), View.makeIndivPanel(input.getCurr()));
-      return ValveResponse.CONFIRM;
-    }
-  }
-
-  /**
-   * Made Review Valve
-   */
-  private class MadeReviewValve implements Valve {
-	  /**
-	   * Execute Valve Response
-	   * @param message
-	   * @return Valve Response
-	   */
-	  
-	 @Override
-    public ValveResponse execute(Message message) {
-      if (message.getClass() != ReviewMadeMessage.class) {
-        return ValveResponse.REJECT;
-      }
-      // create review
-      return ValveResponse.CONFIRM;
-    }
-  }
-  /**
-   * Made Reservation Valve
-   */
-  private class MadeReservationValve implements Valve {
-	  /**
-	   * Execute Valve Response
-	   * @param message
-	   * @return Valve Response
-	   */
-	  
-	 @Override
-    public ValveResponse execute(Message message) {
-      if (message.getClass() != ReservationMadeMessage.class) {
-        return ValveResponse.REJECT;
-      }
-      // create reservation
       return ValveResponse.CONFIRM;
     }
   }
