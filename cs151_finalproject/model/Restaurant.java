@@ -112,12 +112,12 @@ public class Restaurant implements Comparable<Restaurant>
 
         fakeReviews.add(new Review(5, "Perfect dishes!", "John Doe"));
         fakeReviews.add(new Review(4, "So-so food, but great people.", "Jane Doe"));
-        fakeReviews.add(new Review(1, "Abolutely horrible food. Hated the service.", "Sasha Lin"));
-        fakeReviews.add(new Review(3, "Quality was alright, but I wouldn't return again.", "Betty White"));
-        fakeReviews.add(new Review(5, "I had a wonderful time here. Will definitely be coming back with my friends.", "Eric Nguyen"));
-        fakeReviews.add(new Review(3, "Mediocore food, but I've had worse", "Alan Kong"));
-        fakeReviews.add(new Review(2, "Horrible wait time and the waiter was rude, but food OK.", "Terilyn Tran"));
-        fakeReviews.add(new Review(4, "The restaurant wasn't the cleanest, but best food I've ever had.", "Katherine Byun"));
+        fakeReviews.add(new Review(1, "Abolutely horrible food.", "Sasha Lin"));
+        fakeReviews.add(new Review(3, "Quality was alright.", "Betty White"));
+        fakeReviews.add(new Review(5, "I had a wonderful time here.", "Eric Nguyen"));
+        fakeReviews.add(new Review(3, "Mediocre food, but I've had worse", "Alan Kong"));
+        fakeReviews.add(new Review(2, "Horrible wait time and rude, but food OK.", "Terilyn Tran"));
+        fakeReviews.add(new Review(4, "Not very clean, but good food.", "Katherine Byun"));
 
         Random rand = new SecureRandom();
         for(int i = 0; i < rand.nextInt(8); i++) {

@@ -27,7 +27,7 @@ public class ReviewPanel extends JFrame {
         restaurantName.setFont(new Font("Arial", Font.BOLD, 20));
         
         titleLabel.setFont(new Font("Arial", Font.BOLD, 15));
-        //titleLabel.setBorder(new EmptyBorder(10,0,10,0));
+        titleLabel.setBorder(new EmptyBorder(10,0,10,0));
         
     	JPanel headerPanel = new JPanel();
     	headerPanel.add(restaurantName);
@@ -38,18 +38,16 @@ public class ReviewPanel extends JFrame {
   
         frame.add(headerPanel, BorderLayout.NORTH);
  
-        frame.add(formPanel(), BorderLayout.CENTER);
+        frame.add(formPanel());
         initializeReviewLabels();
 
         // implement a scroll pane that appears when the list gets longer than allocated size
         scrollPane = new JScrollPane(reviewJList);
-        Container contentPane = frame.getContentPane();    
-        //contentPane.setPreferredSize(new Dimension(50,50));
-        contentPane.add(scrollPane, BorderLayout.WEST);
-   
+        Container contentPane = frame.getContentPane();         
+        contentPane.add(scrollPane, BorderLayout.WEST); 
+  
         frame.add(backButton, BorderLayout.SOUTH);
-        frame.setPreferredSize(new Dimension(500, 500));
-        //frame.getContentPane().setPreferredSize(new Dimension(50, 50));
+        frame.setPreferredSize(new Dimension(500, 500));   
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
