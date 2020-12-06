@@ -4,8 +4,6 @@ import javax.swing.*;
 
 import cs151_finalproject.controller.IndividualPanelMessage;
 import cs151_finalproject.controller.Message;
-import cs151_finalproject.controller.ReservationMadeMessage;
-import cs151_finalproject.controller.ReviewMadeMessage;
 import cs151_finalproject.model.Model;
 import cs151_finalproject.model.Restaurant;
 import cs151_finalproject.controller.ReservationPanelMessage;
@@ -70,30 +68,6 @@ public class View {
         viewIndividual.addActionListener(event -> {
             try {
                 this.queue.put(new IndividualPanelMessage(oldFrame, curr));       // <-- adding message to the queue
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                Thread.currentThread().interrupt(); // fixes the re-interrupt warning
-            }
-        });
-        
-
-        // /*
-        // * commented out because not sure if these should be here or in the panels themselves?
-        // * since the actual buttons should be in their respective panels unless im trippin' lol
-        // *
-
-        reservationMade.addActionListener(event -> {
-            try {
-                this.queue.put(new ReservationMadeMessage(confirmString));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                Thread.currentThread().interrupt(); // fixes the re-interrupt warning
-            }
-        });
-
-        reviewMade.addActionListener(event -> {
-            try {
-                this.queue.put(new ReviewMadeMessage(confirmString));
             } catch (InterruptedException e) {
                 e.printStackTrace();
                 Thread.currentThread().interrupt(); // fixes the re-interrupt warning
