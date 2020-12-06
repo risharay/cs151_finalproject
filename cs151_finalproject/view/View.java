@@ -6,7 +6,6 @@ import cs151_finalproject.controller.IndividualPanelMessage;
 import cs151_finalproject.controller.Message;
 import cs151_finalproject.controller.ReservationMadeMessage;
 import cs151_finalproject.controller.ReviewMadeMessage;
-import cs151_finalproject.controller.SearchMadeMessage;
 import cs151_finalproject.model.Model;
 import cs151_finalproject.model.Restaurant;
 import cs151_finalproject.controller.ReservationPanelMessage;
@@ -101,31 +100,16 @@ public class View {
             }
         });
         
-
-        // add everything and set layout and other standard JFrame settings
-        // mainFrame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
-        // mainFrame.setSize(500,500);
-
-        // // would add buttons here but i forgot how we are like making a start page or ..?
-        // //
-        // //
-
-        // mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // mainFrame.pack();
-        // mainFrame.setVisible(true);
-        
     }
 
     public static void changeFrame(JFrame f1, JFrame f2)
     {
         f2.setVisible(true);
         f1.dispose();
-        System.out.println("Changed Frame real");
     }
 
     public static void setJFrame(JFrame frame) {
         oldFrame = frame;
-        System.out.println("Changed Frame old");
     } 
 
     public static void setCurr(Restaurant restaurant) {

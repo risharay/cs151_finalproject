@@ -92,7 +92,6 @@ public class Restaurant implements Comparable<Restaurant>
 
     // Reservation methods
     public boolean makeReservation(Reservation newReservation) {
-        newReservation.setReservationId(reservations.size() + 1);
         reservations.add(newReservation);
         return true;
     }

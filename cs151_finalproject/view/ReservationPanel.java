@@ -66,16 +66,7 @@ public class ReservationPanel extends JFrame {
         partySizePanelUpdated.add(partySizeLabelUpdated);
 
         numberOfPartiesPanel.add(numberOfPartiesLabel);
-        numberOfPartiesLabel.setText("Number of Parties Ahead: " + String.valueOf(restaurant.getReservations().size()));
-        
-//        JPanel inputs = new JPanel();
-//        inputs.add(partyNamePanel);
-//        inputs.add(partyNamePanelUpdated);
-//        inputs.add(partySizePanel);
-//        inputs.add(partySizePanelUpdated);
-//        inputs.add(numberOfPartiesPanel);
-//        inputs.add(numberOfPartiesPanelUpdated);
-//        
+        numberOfPartiesLabel.setText("Number of Parties Ahead: " + restaurant.getReservations().size());      
 
         numberOfPartiesPanelUpdated.add(numberOfPartiesLabelUpdated);
 
@@ -98,7 +89,6 @@ public class ReservationPanel extends JFrame {
         frame.add(partySizePanelUpdated, JFrame.LEFT_ALIGNMENT);
         frame.add(numberOfPartiesPanel, JFrame.LEFT_ALIGNMENT);
         frame.add(numberOfPartiesPanelUpdated, JFrame.LEFT_ALIGNMENT);
-//        frame.add(inputs);
         frame.add(buttons);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
@@ -115,28 +105,9 @@ public class ReservationPanel extends JFrame {
         
         
         reservations.add(new Reservation(size, name));
-        JOptionPane.showMessageDialog(null,reservations.get(reservations.size()-1));
+        numberOfPartiesLabel.setText("Number of Parties Ahead: " + reservations.size()); 
+        JOptionPane.showMessageDialog(null,"Reservation Made\n" + reservations.get(reservations.size()-1));
        
-        //for (int i = 0; i < reservations.size(); i++) {
-
-            //Debugging
-//            System.out.println(reservations.get(i).getPartyName());
-//            System.out.println(reservations.get(i).getPartySize());
-//            System.out.println(String.valueOf(reservations.get(i).getReservationId()));
-
-            //partyNameLabelUpdated.setText("Party Name: " + reservations.get(i).getPartyName());
-            //partySizeLabelUpdated.setText("Party Size: " + reservations.get(i).getPartySize());
-           // numberOfPartiesLabelUpdated.setText("Number of Parties Ahead: " + String.valueOf(reservations.get(i).getReservationId()));
-           // numberOfPartiesLabel.setText("Number of Parties Ahead: " + String.valueOf(reservations.get(i).getReservationId()));
-
-           // partyNameLabel.setVisible(true);
-           // partyNameField.setVisible(true);
-           // partySizeLabel.setVisible(true);
-           // partySizeField.setVisible(true);
-           
-           // numberOfPartiesLabel.setVisible(true);
-           // confirm.setVisible(true);
-       // }
     }
 
     private static void setReservations(List<Reservation> res) {
