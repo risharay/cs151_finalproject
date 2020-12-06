@@ -1,5 +1,6 @@
 package cs151_finalproject.view;
 
+import cs151_finalproject.model.Model;
 import cs151_finalproject.model.Restaurant;
 import cs151_finalproject.model.RestaurantCuisineComparator;
 import cs151_finalproject.model.RestaurantLocationComparator;
@@ -34,8 +35,9 @@ public class RestaurantPanel extends JFrame
     /**
      * Design and functions for the Restaurant Panel
      */
-    public RestaurantPanel()
-    {
+    public RestaurantPanel(Model mainModel)
+    {        
+        setRestaurants(Model.getRestaurants());
         panel1.setLayout(new FlowLayout());
         panel1.add(search);
         panel1.add(searchBar);
@@ -105,6 +107,12 @@ public class RestaurantPanel extends JFrame
             {
                 model.addElement(r);
             }
+        }
+    }
+
+    private static void setRestaurants(List<Restaurant> res) {
+        for(Restaurant r : res) {
+            restaurants.add(r);
         }
     }
 }

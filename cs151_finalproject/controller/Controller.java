@@ -1,6 +1,7 @@
 package cs151_finalproject.controller;
 
 import cs151_finalproject.model.Model;
+import cs151_finalproject.view.RestaurantPanel;
 import cs151_finalproject.view.View;
 
 import java.util.LinkedList;
@@ -29,6 +30,7 @@ public class Controller {
  public void mainLoop() {
   ValveResponse response = ValveResponse.CONFIRM;
   Message message = null;
+  new RestaurantPanel(model);
   while (response != ValveResponse.FINISH) {
     try {
         message = queue.take(); 
@@ -69,7 +71,7 @@ public class Controller {
         return ValveResponse.REJECT;
       }
       RestaurantPanelMessage input = (RestaurantPanelMessage)message;
-      View.changeFrame(input.getOldFrame(), View.makeRestaurantPanel());
+      View.changeFrame(input.getOldFrame(), View.makeRestaurantPanel(model));
       return ValveResponse.CONFIRM;
     }
   }

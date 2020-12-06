@@ -3,7 +3,7 @@ package cs151_finalproject.model;
 import java.util.*;
 
 public class Model {
-    List<Restaurant> restaurants = new ArrayList<>();
+    static List<Restaurant> restaurants = new ArrayList<>();
     String[] cuisine = {"Japanese", "Chinese", "Mexican", "Fast Food", "Korean"};
 
     public Model() {
@@ -23,5 +23,14 @@ public class Model {
         restaurants.add(new Restaurant("Sodam", cuisine[4]));
         restaurants.add(new Restaurant("Bonchon", cuisine[4]));
         restaurants.add(new Restaurant("Mayflower", cuisine[1]));
+        
+//        System.out.println(restaurants.size());
+//        for(Restaurant r:restaurants)
+//        	System.out.println(r);
     }
+
+    public static List<Restaurant> getRestaurants() {
+        return restaurants;
+    }
+
 }

@@ -39,15 +39,16 @@ public class IndividualRestaurantPanel extends JFrame {
         restaurantInformationPanel.setLayout(new BoxLayout(restaurantInformationPanel, BoxLayout.Y_AXIS));
         restaurantInformationPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        seeReviews = new JButton("See Reviews");
         // makeReservation = new JButton("Make Reservation");
         // back = new JButton("Back");
         // seeReviews.addActionListener(seeReviews -> seeReviews());
         // makeReservation.addActionListener(makeReservation -> makeReservation());
         // back.addActionListener(back -> back());
 
-        buttons.add(seeReviews);
+        buttons.add(View.viewReview);
         buttons.add(View.viewReservation);
+        buttons.add(View.viewRestaurant);
+
         // buttons.add(back);
         buttons.setAlignmentX(Component.CENTER_ALIGNMENT);
 

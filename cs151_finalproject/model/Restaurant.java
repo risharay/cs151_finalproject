@@ -73,10 +73,20 @@ public class Restaurant implements Comparable<Restaurant>
 
     public void calculateOverallRating() {
         double totalRating = 0;
+        double count = 0;
         for(Review r : reviews)
         {
             totalRating += r.getRating();
+            count+= 1.0;
         }
+        if(count == 0)
+            totalRating = 0;
+        else
+            totalRating = totalRating / count;
+
+        int truncator = (int)( totalRating * Math.pow( 10, 1 ) );
+        totalRating = (double)( truncator / Math.pow( 10, 1) );
+
         setRating(totalRating);
     }
 
@@ -103,7 +113,7 @@ public class Restaurant implements Comparable<Restaurant>
 
     @Override
     public String toString() {
-        return name + ", Cuisine = " + cuisine + ", " + distance + " miles away, " + rating + "/5";
+        return name + ", Cuisine: " + cuisine + ", " + distance + " miles away, " + rating + "/5";
     }
     
     // database generator
@@ -130,13 +140,13 @@ public class Restaurant implements Comparable<Restaurant>
         List<Reservation> fakeReservations = new ArrayList<>();
 
         fakeReservations.add(new Reservation(4, "Aaron Kim"));
-        fakeReservations.add(new Reservation(4, "Sara Bennett"));
-        fakeReservations.add(new Reservation(4, "Mary Chou"));
-        fakeReservations.add(new Reservation(4, "Zachary James"));
-        fakeReservations.add(new Reservation(4, "Monica Liu"));
+        fakeReservations.add(new Reservation(7, "Sara Bennett"));
+        fakeReservations.add(new Reservation(2, "Mary Chou"));
+        fakeReservations.add(new Reservation(1, "Zachary James"));
+        fakeReservations.add(new Reservation(2, "Monica Liu"));
         fakeReservations.add(new Reservation(4, "Steven Wu"));
-        fakeReservations.add(new Reservation(4, "Michael Su"));
-        fakeReservations.add(new Reservation(4, "Kevin Miller"));
+        fakeReservations.add(new Reservation(2, "Michael Su"));
+        fakeReservations.add(new Reservation(2, "Kevin Miller"));
 
         Random rand = new SecureRandom();
         for(int i = 0; i < rand.nextInt(8); i++) {

@@ -25,6 +25,7 @@ public class View {
     public static JButton viewRestaurant = new JButton("Back");
     public static JButton viewReservation = new JButton("Make a Reservation");
     public static JButton viewReview = new JButton("See Reviews");
+    public static JButton viewIndividual = new JButton("See Reviews");
     JButton searchMade = new JButton();
     JButton reservationMade = new JButton();
     JButton reviewMade = new JButton();
@@ -71,6 +72,15 @@ public class View {
                 Thread.currentThread().interrupt(); // fixes the re-interrupt warning
             }
         });
+
+        viewIndividual.addActionListener(event -> {
+            try {
+                this.queue.put(new ReviewPanelMessage(oldFrame, curr));       // <-- adding message to the queue
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                Thread.currentThread().interrupt(); // fixes the re-interrupt warning
+            }
+        });
         
 
         // /*
@@ -98,7 +108,6 @@ public class View {
 
         reviewMade.addActionListener(event -> {
             try {
-                ReviewPanel.update();
                 this.queue.put(new ReviewMadeMessage(confirmString));
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -118,8 +127,6 @@ public class View {
         // mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // mainFrame.pack();
         // mainFrame.setVisible(true);
-
-        new IndividualRestaurantPanel(new Restaurant("Panda Express", "Chinese"));
     }
 
     public static void changeFrame(JFrame f1, JFrame f2)
@@ -152,8 +159,8 @@ public class View {
         return new ReservationPanel(restaurant);
     }
 
-    public static JFrame makeRestaurantPanel() {
-        return new RestaurantPanel();
+    public static JFrame makeRestaurantPanel(Model model) {
+        return new RestaurantPanel(model);
     }
 
     public static JFrame makeIndivPanel(Restaurant restaurant) {
