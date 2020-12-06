@@ -9,9 +9,6 @@ import java.awt.*;
 
 @SuppressWarnings("serial")
 public class IndividualRestaurantPanel extends JFrame {
-    private JButton seeReviews;
-    private JButton makeReservation;
-    private JButton back;
     private JLabel restaurantName;
     private JLabel restaurantDistance;
     private JLabel restaurantRating;
@@ -22,6 +19,7 @@ public class IndividualRestaurantPanel extends JFrame {
     String arial = "Arial";
 
     public IndividualRestaurantPanel(Restaurant restaurant) {
+        View.setJFrame(this);
     	View.setCurr(restaurant);
     	
         restaurantName = new JLabel(restaurant.getName());
@@ -39,17 +37,10 @@ public class IndividualRestaurantPanel extends JFrame {
         restaurantInformationPanel.setLayout(new BoxLayout(restaurantInformationPanel, BoxLayout.Y_AXIS));
         restaurantInformationPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        // makeReservation = new JButton("Make Reservation");
-        // back = new JButton("Back");
-        // seeReviews.addActionListener(seeReviews -> seeReviews());
-        // makeReservation.addActionListener(makeReservation -> makeReservation());
-        // back.addActionListener(back -> back());
-
         buttons.add(View.viewReview);
         buttons.add(View.viewReservation);
         buttons.add(View.viewRestaurant);
 
-        // buttons.add(back);
         buttons.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         frame.add(restaurantInformationPanel);
@@ -57,7 +48,7 @@ public class IndividualRestaurantPanel extends JFrame {
 
         frame.setPreferredSize(new Dimension(500, 500));
         frame.setLayout((LayoutManager) new FlowLayout(FlowLayout.LEFT));
-        // frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
+
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);

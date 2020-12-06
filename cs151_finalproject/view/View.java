@@ -2,10 +2,12 @@ package cs151_finalproject.view;
 
 import javax.swing.*;
 
+import cs151_finalproject.controller.IndividualPanelMessage;
 import cs151_finalproject.controller.Message;
 import cs151_finalproject.controller.ReservationMadeMessage;
 import cs151_finalproject.controller.ReviewMadeMessage;
 import cs151_finalproject.controller.SearchMadeMessage;
+import cs151_finalproject.model.Model;
 import cs151_finalproject.model.Restaurant;
 import cs151_finalproject.controller.ReservationPanelMessage;
 import cs151_finalproject.controller.ReviewPanelMessage;
@@ -18,14 +20,13 @@ public class View {
     public static JFrame oldFrame;
     public static Restaurant curr;
     public static String confirmString;
-
-    private JFrame mainFrame;
     private BlockingQueue<Message> queue;
 
     public static JButton viewRestaurant = new JButton("Back");
     public static JButton viewReservation = new JButton("Make a Reservation");
     public static JButton viewReview = new JButton("See Reviews");
-    public static JButton viewIndividual = new JButton("See Reviews");
+    public static JButton viewIndividual = new JButton("Back");
+
     JButton searchMade = new JButton();
     JButton reservationMade = new JButton();
     JButton reviewMade = new JButton();
@@ -39,13 +40,7 @@ public class View {
     private View(BlockingQueue<Message> queue)
     {
         this.queue = queue;
-        // TODO:
-        // you should initalize JFrame and show it,
-        // JFrame should be able to add Messages to queue
-        // JFrame can be in a separate class or created JFrame with all the elements in this class
-        // or you can make View a subclass of JFrame by extending it
-        mainFrame = new JFrame();
-
+        
         viewRestaurant.addActionListener(event -> {
             try {
                 this.queue.put(new RestaurantPanelMessage(oldFrame, curr));   // <-- adding message to the queue
@@ -75,7 +70,7 @@ public class View {
 
         viewIndividual.addActionListener(event -> {
             try {
-                this.queue.put(new ReviewPanelMessage(oldFrame, curr));       // <-- adding message to the queue
+                this.queue.put(new IndividualPanelMessage(oldFrame, curr));       // <-- adding message to the queue
             } catch (InterruptedException e) {
                 e.printStackTrace();
                 Thread.currentThread().interrupt(); // fixes the re-interrupt warning
@@ -87,15 +82,6 @@ public class View {
         // * commented out because not sure if these should be here or in the panels themselves?
         // * since the actual buttons should be in their respective panels unless im trippin' lol
         // *
-
-        searchMade.addActionListener(event -> {
-            try {
-                this.queue.put(new SearchMadeMessage(confirmString));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                Thread.currentThread().interrupt(); // fixes the re-interrupt warning
-            }
-        });
 
         reservationMade.addActionListener(event -> {
             try {
@@ -127,20 +113,19 @@ public class View {
         // mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // mainFrame.pack();
         // mainFrame.setVisible(true);
+        
     }
 
     public static void changeFrame(JFrame f1, JFrame f2)
     {
-    	System.out.println(f1.getLocation());
-    	System.out.println(f2.getLocation());
-    	f2.setLocation(f1.getLocation());
-    	System.out.println(f2.getLocation());
         f2.setVisible(true);
         f1.dispose();
+        System.out.println("Changed Frame real");
     }
 
     public static void setJFrame(JFrame frame) {
         oldFrame = frame;
+        System.out.println("Changed Frame old");
     } 
 
     public static void setCurr(Restaurant restaurant) {

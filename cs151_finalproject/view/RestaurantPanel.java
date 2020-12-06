@@ -37,6 +37,7 @@ public class RestaurantPanel extends JFrame
      */
     public RestaurantPanel(Model mainModel)
     {        
+        View.setJFrame(this);
         setRestaurants(Model.getRestaurants());
         panel1.setLayout(new FlowLayout());
         panel1.add(search);
@@ -52,6 +53,11 @@ public class RestaurantPanel extends JFrame
         JScrollPane listScroller = new JScrollPane();
         listScroller.setViewportView(list);
         list.setLayoutOrientation(JList.VERTICAL);
+
+        list.getSelectionModel().addListSelectionListener(e -> {
+            View.changeFrame(this.frame, new IndividualRestaurantPanel(list.getSelectedValue()));
+        });
+
         panel2.add(listScroller);
 
         filter.addActionListener(filter -> updateList());

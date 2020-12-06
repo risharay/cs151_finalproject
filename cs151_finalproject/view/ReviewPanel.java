@@ -29,6 +29,7 @@ public class ReviewPanel extends JFrame {
 
     // the frame itself
     public ReviewPanel(Restaurant restaurant) {
+        View.setJFrame(this);
         setReviews(restaurant.getReviews());
         
         restaurantName.setText(restaurant.getName());
@@ -54,7 +55,7 @@ public class ReviewPanel extends JFrame {
         Container contentPane = frame.getContentPane();         
         contentPane.add(scrollPane, BorderLayout.WEST); 
   
-        frame.add(backButton, BorderLayout.SOUTH);
+        frame.add(View.viewIndividual, BorderLayout.SOUTH);
         frame.setPreferredSize(new Dimension(500, 500));   
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
@@ -71,8 +72,7 @@ public class ReviewPanel extends JFrame {
     // e.g. * disables selection (view only)
     public void initializeReviewLabels() {
         // clears the list and reinitializes it due to error with the automatic refresh of JList
-        model.clear();
-        reviewJList = new JList<>(model);
+            reviewJList = new JList<>(model);
         for (Review r : reviews) {
             model.addElement(r);
         }
@@ -84,12 +84,7 @@ public class ReviewPanel extends JFrame {
     
     // the submission panel for users to input:
     // name, rating, and comment
-    public JPanel formPanel() {
-    	
-//    	JPanel headerPanel = new JPanel();
-//    	headerPanel.add(restaurantName);
-//    	headerPanel.add(titleLabel);
-    	
+    public JPanel formPanel() {    	
     	JPanel namePanel = new JPanel();
         namePanel.add(nameLabel);
         namePanel.add(nameInput);
@@ -106,7 +101,7 @@ public class ReviewPanel extends JFrame {
         submitButton.addActionListener(e -> update());
 
         JPanel formPanel = new JPanel();
-        //formPanel.add(headerPanel);
+
         formPanel.add(namePanel);
         formPanel.add(detailPanel);
         formPanel.add(reviewPanel);
@@ -115,16 +110,7 @@ public class ReviewPanel extends JFrame {
         return formPanel;
     }
 
-    public static void main(String[] args) {
-        Restaurant test = new Restaurant("Panda Express", "Chinese");
-
-        ReviewPanel graph = new ReviewPanel(test);
-        graph.setSize(500, 500);
-
-    }
-
     // variables
-    private JLabel titleLabel;
     private JLabel nameLabel = new JLabel("Name: ");
     private JLabel ratingLabel = new JLabel("Rating: ");
     private JLabel reviewLabel = new JLabel("Review: ");
@@ -134,7 +120,6 @@ public class ReviewPanel extends JFrame {
     private JTextField ratingInput = new JTextField(1);
     private JTextField reviewInput = new JTextField(10);
     private JButton submitButton = new JButton("Submit");
-    private JButton backButton = new JButton("Back");
 
     private DefaultListModel<Review> model =  new DefaultListModel<>();
     private JList<Review> reviewJList = new JList<>(model);

@@ -3,6 +3,7 @@ package cs151_finalproject;
 import cs151_finalproject.controller.Controller;
 import cs151_finalproject.controller.Message;
 import cs151_finalproject.model.Model;
+import cs151_finalproject.view.RestaurantPanel;
 import cs151_finalproject.view.View;
 
 
